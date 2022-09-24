@@ -42,8 +42,8 @@
         android:label="@string/farmer_homepage"
         tools:layout="@layout/fragment_farmer_homepage" >
         <action
-            android:id="@+id/action_nav_farmerHomepage_to_nav_productList"
-            app:destination="@id/nav_productList" />
+            android:id="@+id/action_nav_farmerHomepage_to_nav_requestList"
+            app:destination="@id/nav_requestList" />
     </fragment>
 
     <fragment
@@ -72,7 +72,11 @@
         android:id="@+id/nav_requestList"
         android:name="com.example.mobileassignment.ui.CustomerRequestList.RequestListFragment"
         android:label="@string/requestList"
-        tools:layout="@layout/fragment_requestlist" />
+        tools:layout="@layout/fragment_requestlist" >
+        <action
+            android:id="@+id/action_nav_requestList_to_nav_contractDetail"
+            app:destination="@id/nav_contractDetail" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_contractDetail"

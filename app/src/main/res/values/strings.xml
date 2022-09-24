@@ -65,5 +65,9 @@
 
     //ContractDetail
     <string name="contractDetail">Contract Description</string>
+    <string name="customerName">Customer Name:</string>
+    <string name="quantityORweight">Quantity/Weight:</string>
+    <string name="location">Location:</string>
+    <string name="acceptRequest">Accept Request</string>
 
 </resources>
