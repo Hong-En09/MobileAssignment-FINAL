@@ -1,4 +1,4 @@
-package com.example.mobileassignment.ui.UserManagement
+package com.example.mobileassignment.ui.Homepage
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,11 +8,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.mobileassignment.R
-import com.example.mobileassignment.databinding.FragmentLoginBinding
+import com.example.mobileassignment.databinding.FragmentFarmerHomepageBinding
+import com.google.android.material.navigation.NavigationView
 
-class LoginFragment: Fragment() {
+class FarmerHomepageFragment: Fragment() {
 
-    private var _binding: FragmentLoginBinding? = null
+    private var _binding: FragmentFarmerHomepageBinding? = null
 
     private val binding get() = _binding!!
 
@@ -22,7 +23,7 @@ class LoginFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        _binding = FragmentFarmerHomepageBinding.inflate(inflater, container, false)
         return binding.root
 
     }
@@ -30,9 +31,19 @@ class LoginFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonLoginBtn.setOnClickListener {
-            findNavController().navigate(R.id.nav_farmerHomepage)
+        NavigationView.OnNavigationItemSelectedListener{
+            when (it.itemId) {
+                R.id.nav_productList -> {
+                    findNavController().navigate(R.id.nav_productList)
+                    true
+                }
+                else -> false
+            }
+
         }
+
+        //findNavController().navigate(R.id.action_nav_farmerHomepage_to_nav_productList)
+
         //binding.buttonRegister.setOnClickListener {
         //findNavController().navigate(R.id.RegisterFragment)
         //}
@@ -43,3 +54,5 @@ class LoginFragment: Fragment() {
         (activity as AppCompatActivity?)!!.supportActionBar!!.show()
     }
 }
+
+

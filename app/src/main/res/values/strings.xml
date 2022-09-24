@@ -11,6 +11,7 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
 
+    //GENERAL
     //Welcome
     <string name="welcome">Welcome</string>
     <string name="title">Fresh Safari</string>
@@ -48,8 +49,21 @@
 
     //testing purpose
     <string name="thisIsProductList">This is a product list.</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    //FARMER
+    //Farmer Homepage
+    <string name="farmer_homepage">Farmer Homepage</string>
+
+    //Product Side Bar
+    <string name="product">All Product</string>
+    <string name="fruit">Fruits</string>
+    <string name="vegetable">Vegetables</string>
+
+    //Request List
+    <string name="request_list">Request List</string>
+    <string name="choose">Choose</string>
+
+    //ContractDetail
+    <string name="contractDetail">Contract Description</string>
 
 </resources>

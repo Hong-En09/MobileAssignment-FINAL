@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_welcome, R.id.nav_productList, R.id.nav_profile
+                R.id.nav_welcome, R.id.nav_productList, R.id.nav_profile, R.id.nav_farmerHomepage
             ), drawerLayout
         )
 
@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
 
         navigationView = findViewById<View>(R.id.nav_view) as NavigationView
         val nav_Menu: Menu = navigationView!!.getMenu()
-        nav_Menu.findItem(R.id.nav_productList).isVisible = false
+        //nav_Menu.findItem(R.id.nav_productList).isVisible = false
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

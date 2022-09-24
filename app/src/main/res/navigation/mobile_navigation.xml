@@ -27,8 +27,24 @@
         android:id="@+id/nav_welcome"
         android:name="com.example.mobileassignment.ui.Welcome.WelcomeFragment"
         android:label="@string/welcome"
-        tools:layout="@layout/fragment_welcome" />
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_nav_welcome_to_nav_login"
+            app:destination="@id/nav_login" />
+        <action
+            android:id="@+id/action_nav_welcome_to_nav_register"
+            app:destination="@id/nav_register" />
+    </fragment>
 
+    <fragment
+        android:id="@+id/nav_farmerHomepage"
+        android:name="com.example.mobileassignment.ui.Homepage.FarmerHomepageFragment"
+        android:label="@string/farmer_homepage"
+        tools:layout="@layout/fragment_farmer_homepage" >
+        <action
+            android:id="@+id/action_nav_farmerHomepage_to_nav_productList"
+            app:destination="@id/nav_productList" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_productList"
@@ -40,13 +56,29 @@
         android:id="@+id/nav_login"
         android:name="com.example.mobileassignment.ui.UserManagement.LoginFragment"
         android:label="@string/loginLbl"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_nav_login_to_nav_farmerHomepage"
+            app:destination="@id/nav_farmerHomepage" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_register"
         android:name="com.example.mobileassignment.ui.UserManagement.RegisterFragment"
         android:label="@string/registerLbl"
         tools:layout="@layout/fragment_register" />
+
+    <fragment
+        android:id="@+id/nav_requestList"
+        android:name="com.example.mobileassignment.ui.CustomerRequestList.RequestListFragment"
+        android:label="@string/requestList"
+        tools:layout="@layout/fragment_requestlist" />
+
+    <fragment
+        android:id="@+id/nav_contractDetail"
+        android:name="com.example.mobileassignment.ui.Farmer.ContractDetailFragment"
+        android:label="@string/requestList"
+        tools:layout="@layout/fragment_contract_detail" />
 
     <activity
         android:id="@+id/nav_profile"
