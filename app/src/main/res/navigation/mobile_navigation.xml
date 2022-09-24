@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_welcome">
+
+    <!--<fragment
+        android:id="@+id/nav_Home"
+        android:name="com.example.mobileassignment.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.example.mobileassignment.ui.gallery.GalleryFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.example.mobileassignment.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_slideshow" />-->
+
+    <fragment
+        android:id="@+id/nav_welcome"
+        android:name="com.example.mobileassignment.ui.Welcome.WelcomeFragment"
+        android:label="@string/welcome"
+        tools:layout="@layout/fragment_welcome" />
+
+
+    <fragment
+        android:id="@+id/nav_productList"
+        android:name="com.example.mobileassignment.ui.ProductList.ProductListFragment"
+        android:label="@string/productList"
+        tools:layout="@layout/fragment_productlist" />
+
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="com.example.mobileassignment.ui.UserManagement.LoginFragment"
+        android:label="@string/loginLbl"
+        tools:layout="@layout/fragment_login" />
+
+    <fragment
+        android:id="@+id/nav_register"
+        android:name="com.example.mobileassignment.ui.UserManagement.RegisterFragment"
+        android:label="@string/registerLbl"
+        tools:layout="@layout/fragment_register" />
+
+    <activity
+        android:id="@+id/nav_profile"
+        android:name="com.example.mobileassignment.ui.Profile.ProfileActivity"
+        android:label="@string/profile"
+        tools:layout="@layout/activity_profile" />
+</navigation>

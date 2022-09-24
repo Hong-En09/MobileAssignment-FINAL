@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">MobileAssignment</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+    //Welcome
+    <string name="welcome">Welcome</string>
+    <string name="title">Fresh Safari</string>
+    <string name="logo">Logo</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="slogan">-Eat Fresh, Feel Fresh-</string>
+    <string name="loginBtn">Login</string>
+    <string name="registerBtn">Register</string>
+
+    //Homepage
+    <string name="account">Account</string>
+    <string name="list">List</string>
+    <string name="productList">Product List</string>
+    <string name="requestList">Customer Request List</string>
+    <string name="profile">Profile</string>
+    <string name="logout">Logout</string>
+
+    //Login/Register Label
+    <string name="loginLbl">Login</string>
+    <string name="registerLbl">Register</string>
+    //Login
+    <string name="loginPage">Login</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+
+    //Register
+    <string name="register">Register</string>
+    <string name="email">Email</string>
+    <string name="confirmPassword">Confirm Password</string>
+    <string-array name="role">
+        <item>Please Select Role</item>
+        <item>Farmer</item>
+        <item>Client</item>
+    </string-array>
+
+    //testing purpose
+    <string name="thisIsProductList">This is a product list.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>
