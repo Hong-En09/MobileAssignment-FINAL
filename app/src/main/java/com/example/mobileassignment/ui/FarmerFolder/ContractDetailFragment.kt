@@ -1,4 +1,4 @@
-package com.example.mobileassignment.ui.Farmer
+package com.example.mobileassignment.ui.FarmerFolder
 
 import android.os.Bundle
 import android.view.LayoutInflater
