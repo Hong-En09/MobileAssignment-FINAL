@@ -1,16 +1,12 @@
 package com.example.mobileassignment.ui.UserManagement
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import com.example.mobileassignment.Entity.User
-import com.example.mobileassignment.R
 import com.example.mobileassignment.databinding.FragmentLoginBinding
 import com.google.firebase.database.*
 
@@ -38,9 +34,10 @@ class LoginFragment: Fragment() {
 
         binding.buttonLoginBtn.setOnClickListener {
             val username : String = binding.editTextUsername.text.toString()
+            val password : String = binding.editTextTextPassword.text.toString()
             if(username.isNotEmpty()){
 
-                readData(username)
+                readData(username,password)
 
             }else{
                 Toast.makeText(context, "Username or password cannot be empty", Toast.LENGTH_SHORT).show()
@@ -52,15 +49,23 @@ class LoginFragment: Fragment() {
         //}
     }
 
-    private fun readData(username: String) {
-        val databaseRef = FirebaseDatabase.getInstance().reference
-        val  classArrayList = ArrayList<User>()
-        databaseRef.child("user").get().addOnSuccessListener {babi->
-            Log.i("babi firebase", "Got value ${babi.value}")
+    private fun readData(username: String, password: String) {
+        val databaseRef = FirebaseDatabase.getInstance().reference.child("user").orderByChild("username").equalTo(username)
+        databaseRef.addValueEventListener(object:ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for(ds in snapshot.children){
+                    val pass = ds.child("password").getValue(String::class.java)
+                    if(password == pass){
+                        Toast.makeText(context, "Yesssss", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
 
-        }.addOnFailureListener {babi->
-            Log.e("babi firebase", "Error getting data", babi)
-        }
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
 
         /*database.child("username").get().addOnSuccessListener {
             if(it.exists()){

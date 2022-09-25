@@ -52,23 +52,15 @@ class RegisterFragment: Fragment() {
 
                 userViewModel.insert(newUser)
             userViewModel.userList.observe(viewLifecycleOwner){
-
+                userViewModel.syncUser()
+                Toast.makeText(context, "Profile Saved", Toast.LENGTH_SHORT).show()
 
 
             }
-
-
-
                 //Return back to the First Fragment
                 //val navController = activity?.findNavController(R.id.nav_host_fragment_content_main)
                 //navController?.navigateUp()
                 //findNavController().navigateUp()
-
-
-        }
-        binding.button.setOnClickListener{
-            userViewModel.syncUser()
-            Toast.makeText(context, "Profile Saved", Toast.LENGTH_SHORT).show()
         }
     }
 
