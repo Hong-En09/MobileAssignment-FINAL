@@ -40,11 +40,7 @@
         android:id="@+id/nav_farmerHomepage"
         android:name="com.example.mobileassignment.ui.Homepage.FarmerHomepageFragment"
         android:label="@string/farmer_homepage"
-        tools:layout="@layout/fragment_farmer_homepage" >
-        <action
-            android:id="@+id/action_nav_farmerHomepage_to_nav_requestList"
-            app:destination="@id/nav_requestList" />
-    </fragment>
+        tools:layout="@layout/fragment_farmer_homepage" />
 
     <fragment
         android:id="@+id/nav_productList"
@@ -69,7 +65,7 @@
         tools:layout="@layout/fragment_register" />
 
     <fragment
-        android:id="@+id/nav_requestList"
+        android:id="@+id/nav_customerRequestList"
         android:name="com.example.mobileassignment.ui.CustomerRequestList.RequestListFragment"
         android:label="@string/requestList"
         tools:layout="@layout/fragment_requestlist" >
@@ -80,9 +76,21 @@
 
     <fragment
         android:id="@+id/nav_contractDetail"
-        android:name="com.example.mobileassignment.ui.Farmer.ContractDetailFragment"
+        android:name="com.example.mobileassignment.ui.FarmerFolder.ContractDetailFragment"
         android:label="@string/requestList"
         tools:layout="@layout/fragment_contract_detail" />
+
+    <fragment
+        android:id="@+id/nav_customerOrderList"
+        android:name="com.example.mobileassignment.ui.FarmerFolder.CustomerOrderListFragment"
+        android:label="@string/requestList"
+        tools:layout="@layout/fragment_customer_orderlist" />
+
+    <fragment
+        android:id="@+id/nav_acceptedRequestList"
+        android:name="com.example.mobileassignment.ui.CustomerFolder.AcceptedRequestListFragment"
+        android:label="@string/acceptedRequestList"
+        tools:layout="@layout/fragment_accepted_requestlist" />
 
     <activity
         android:id="@+id/nav_profile"

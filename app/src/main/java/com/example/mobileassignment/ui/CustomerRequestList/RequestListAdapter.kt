@@ -14,8 +14,8 @@ class RequestListAdapter : RecyclerView.Adapter<RequestListAdapter.ViewHolder>()
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         //view (parameter) refers to the layout hosting each record
-        val textName: TextView = view.findViewById(R.id.textViewItem)
-        val textPhone: TextView = view.findViewById<TextView>(R.id.textViewQuantity)
+        val textItem: TextView = view.findViewById(R.id.textViewItem)
+        val textQuantity: TextView = view.findViewById<TextView>(R.id.textViewQuantity)
 
         init {
             view.setOnClickListener{
@@ -37,8 +37,8 @@ class RequestListAdapter : RecyclerView.Adapter<RequestListAdapter.ViewHolder>()
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val requestlist = dataSet[position]
-        holder.textName.text = requestlist.item
-        holder.textPhone.text = requestlist.quantity
+        holder.textItem.text = requestlist.item
+        holder.textQuantity.text = requestlist.quantity
     }
 
     override fun getItemCount(): Int {

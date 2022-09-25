@@ -70,4 +70,17 @@
     <string name="location">Location:</string>
     <string name="acceptRequest">Accept Request</string>
 
+    //Customer Order List
+    <string name="orderList">Customer Order List</string>
+    <string name="name">Name:</string>
+    <string name="address">Address:</string>
+    <string name="phoneNum">Phone Number:</string>
+    <string name="status">Status:</string>
+    <string name="arrived">Arrived</string>
+
+    //Accepted Request List
+    <string name="acceptedRequestList">Accepted Request List</string>
+    //Name,PhoneNumber,Status string take from Customer Order List
+    <string name="acceptedProduct">Product:</string>
+    <string name="detail">Detail</string>
 </resources>
