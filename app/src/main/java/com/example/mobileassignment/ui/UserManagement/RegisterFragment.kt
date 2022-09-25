@@ -52,8 +52,8 @@ class RegisterFragment: Fragment() {
 
                 userViewModel.insert(newUser)
             userViewModel.userList.observe(viewLifecycleOwner){
-                userViewModel.syncUser()
-                Toast.makeText(context, "Profile Saved", Toast.LENGTH_SHORT).show()
+
+
 
             }
 
@@ -67,6 +67,8 @@ class RegisterFragment: Fragment() {
 
         }
         binding.button.setOnClickListener{
+            userViewModel.syncUser()
+            Toast.makeText(context, "Profile Saved", Toast.LENGTH_SHORT).show()
         }
     }
 
