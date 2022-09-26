@@ -1,5 +1,6 @@
 package com.example.mobileassignment.ui.UserManagement
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import com.example.mobileassignment.R
 import com.example.mobileassignment.databinding.FragmentLoginBinding
 import com.google.firebase.database.*
 
@@ -51,12 +55,23 @@ class LoginFragment: Fragment() {
 
     private fun readData(username: String, password: String) {
         val databaseRef = FirebaseDatabase.getInstance().reference.child("user").orderByChild("username").equalTo(username)
-        databaseRef.addValueEventListener(object:ValueEventListener{
+        databaseRef.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for(ds in snapshot.children){
                     val pass = ds.child("password").getValue(String::class.java)
+
                     if(password == pass){
-                        Toast.makeText(context, "Yesssss", Toast.LENGTH_SHORT).show()
+
+                        val email = ds.child("email").getValue(String::class.java)
+                        Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT).show()
+                        val sharedPreferences = activity?.getSharedPreferences("preferenceFile", Context.MODE_PRIVATE)
+                        with (sharedPreferences!!.edit()) {
+                            putString("username", username)
+                            putString("email", email)
+
+                            apply()
+                        }
+                        findNavController().navigate(R.id.action_nav_login_to_nav_farmerHomepage)
                     }
                 }
             }

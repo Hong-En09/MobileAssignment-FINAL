@@ -8,7 +8,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.example.mobileassignment.Entity.User
+import com.example.mobileassignment.R
 import com.example.mobileassignment.databinding.FragmentRegisterBinding
 import com.google.firebase.database.FirebaseDatabase
 
@@ -49,6 +51,7 @@ class RegisterFragment: Fragment() {
                 val password = binding.passwordText.text.toString()
                 val role = binding.roleSpinner.selectedItem.toString()
                 val newUser = User(username, password, role, email)
+
 
                 userViewModel.insert(newUser)
             userViewModel.userList.observe(viewLifecycleOwner){
