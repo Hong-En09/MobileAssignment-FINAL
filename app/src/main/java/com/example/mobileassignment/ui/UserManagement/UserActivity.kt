@@ -1,9 +1,13 @@
-package com.example.mobileassignment
+package com.example.mobileassignment.ui.UserManagement
 
 
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -11,21 +15,20 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.mobileassignment.R
 import com.example.mobileassignment.databinding.ActivityMainBinding
+import com.example.mobileassignment.ui.Homepage.FarmerActivity
 import com.google.android.material.navigation.NavigationView
 
 
-class MainActivity : AppCompatActivity() {
+class UserActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var appBarConfiguration1: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
-    var navigationView: NavigationView? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -38,16 +41,22 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_welcome, R.id.nav_productList, R.id.nav_profile, R.id.nav_farmerHomepage, R.id.nav_customerRequestList
+                R.id.nav_welcome
             ), drawerLayout
         )
+
+
+
+
+
+
 
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        navigationView = findViewById<View>(R.id.nav_view) as NavigationView
-        val nav_Menu: Menu = navigationView!!.getMenu()
+        //navigationView = findViewById<View>(R.id.nav_view) as NavigationView
+        //val nav_Menu: Menu = navigationView!!.getMenu()
         //nav_Menu.findItem(R.id.nav_productList).isVisible = false
 
     }

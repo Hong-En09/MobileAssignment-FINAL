@@ -8,7 +8,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.example.mobileassignment.Entity.User
+import com.example.mobileassignment.R
 import com.example.mobileassignment.databinding.FragmentRegisterBinding
 import com.google.firebase.database.FirebaseDatabase
 
@@ -50,23 +52,18 @@ class RegisterFragment: Fragment() {
                 val role = binding.roleSpinner.selectedItem.toString()
                 val newUser = User(username, password, role, email)
 
+
                 userViewModel.insert(newUser)
             userViewModel.userList.observe(viewLifecycleOwner){
                 userViewModel.syncUser()
                 Toast.makeText(context, "Profile Saved", Toast.LENGTH_SHORT).show()
 
+
             }
-
-
-
                 //Return back to the First Fragment
                 //val navController = activity?.findNavController(R.id.nav_host_fragment_content_main)
                 //navController?.navigateUp()
                 //findNavController().navigateUp()
-
-
-        }
-        binding.button.setOnClickListener{
         }
     }
 

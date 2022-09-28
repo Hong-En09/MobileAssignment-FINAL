@@ -87,4 +87,6 @@
     <string name="acceptedProduct">Product:</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
+    <string name="detail">Detail</string>
+    <string name="title_activity_farmer">FarmerActivity</string>
 </resources>

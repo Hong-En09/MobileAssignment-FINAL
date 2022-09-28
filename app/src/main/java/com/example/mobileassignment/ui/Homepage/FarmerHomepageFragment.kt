@@ -1,5 +1,6 @@
 package com.example.mobileassignment.ui.Homepage
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -41,6 +42,9 @@ class FarmerHomepageFragment: Fragment() {
             }
 
         }
+        val sharedPreferences = activity?.getSharedPreferences("preferenceFile", Context.MODE_PRIVATE)
+        val username = sharedPreferences?.getString("username", null)
+
 
         //findNavController().navigate(R.id.action_nav_farmerHomepage_to_nav_productList)
 

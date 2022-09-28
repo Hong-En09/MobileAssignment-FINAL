@@ -24,9 +24,10 @@ class UserRepository(private val userDao: UserDao) {
     }
 
     fun syncUser(userList: List<User>){
-        val database: DatabaseReference = Firebase.database.reference
+        val database: DatabaseReference = Firebase.database.getReference("user")
 
         for(user in userList.listIterator()){
+            database.child(user.username).setValue(user)
             /*database.child("user").child(id)
                 .child(user.email).child("username")
                 .setValue(user.username)
@@ -44,11 +45,10 @@ class UserRepository(private val userDao: UserDao) {
                 .child(user.email).child("email")
                 .setValue(user.email)
 
-             */
-
-            database.child("user").child(user.username).child("email").setValue(user.email)
-            database.child("user").child(user.username).child("role").setValue(user.role)
-            database.child("user").child(user.username).child("password").setValue(user.password)
+            database.child("user").child("username").child(user.username).child("username").setValue(user.username)
+            database.child("user").child("username").child(user.username).child("email").setValue(user.email)
+            database.child("user").child("username").child(user.username).child("role").setValue(user.role)
+            database.child("user").child("username").child(user.username).child("password").setValue(user.password)*/
         }
     }
 

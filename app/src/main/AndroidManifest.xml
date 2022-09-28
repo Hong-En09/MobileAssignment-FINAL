@@ -17,10 +17,15 @@
             android:name=".ui.CustomerFolder.CustomerActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.Homepage.FarmerActivity"
+            android:exported="false"
+            android:label="FarmerActivity"
+            android:theme="@style/Theme.MobileAssignment.NoActionBar" />
+        <activity
             android:name=".ui.Profile.ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.UserManagement.UserActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.MobileAssignment.NoActionBar">
