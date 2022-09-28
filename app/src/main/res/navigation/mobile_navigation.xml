@@ -87,6 +87,12 @@
         tools:layout="@layout/fragment_customer_orderlist" />
 
     <fragment
+        android:id="@+id/nav_addNewRequest"
+        android:name="com.example.mobileassignment.ui.CustomerFolder.AddNewRequestFragment"
+        android:label="@string/addNewRequest"
+        tools:layout="@layout/fragment_add_newrequest" />
+
+    <fragment
         android:id="@+id/nav_acceptedRequestList"
         android:name="com.example.mobileassignment.ui.CustomerFolder.AcceptedRequestListFragment"
         android:label="@string/acceptedRequestList"

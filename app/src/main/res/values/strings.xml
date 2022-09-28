@@ -78,9 +78,13 @@
     <string name="status">Status:</string>
     <string name="arrived">Arrived</string>
 
+    //Add New Request
+    <string name="addNewRequest">Add Request</string>
+
     //Accepted Request List
     <string name="acceptedRequestList">Accepted Request List</string>
     //Name,PhoneNumber,Status string take from Customer Order List
     <string name="acceptedProduct">Product:</string>
-    <string name="detail">Detail</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
 </resources>

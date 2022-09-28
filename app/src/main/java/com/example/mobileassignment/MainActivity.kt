@@ -43,15 +43,15 @@ class MainActivity : AppCompatActivity() {
         )
 
 
-
-
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
         navigationView = findViewById<View>(R.id.nav_view) as NavigationView
         val nav_Menu: Menu = navigationView!!.getMenu()
         //nav_Menu.findItem(R.id.nav_productList).isVisible = false
+
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
