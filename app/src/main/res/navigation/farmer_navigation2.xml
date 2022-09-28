@@ -14,4 +14,10 @@
         android:name="com.example.mobileassignment.ui.ProductList.ProductListFragment"
         android:label="@string/productList"
         tools:layout="@layout/fragment_productlist" />
+
+    <fragment
+        android:id="@+id/nav_customerRequestList"
+        android:name="com.example.mobileassignment.ui.CustomerRequestList.RequestListFragment"
+        android:label="@string/requestList"
+        tools:layout="@layout/fragment_requestlist" />
 </navigation>

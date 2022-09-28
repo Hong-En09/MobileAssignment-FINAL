@@ -39,7 +39,7 @@ class FarmerActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.farmerHomepageFragment, R.id.nav_productList
+                R.id.farmerHomepageFragment, R.id.nav_productList, R.id.nav_customerRequestList
             ), drawerLayout
         )
 
