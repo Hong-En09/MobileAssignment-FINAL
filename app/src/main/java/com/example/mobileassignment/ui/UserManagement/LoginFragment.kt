@@ -1,6 +1,7 @@
 package com.example.mobileassignment.ui.UserManagement
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.mobileassignment.R
 import com.example.mobileassignment.databinding.FragmentLoginBinding
+import com.example.mobileassignment.ui.Homepage.FarmerActivity
 import com.google.firebase.database.*
 
 class LoginFragment: Fragment() {
@@ -70,8 +72,9 @@ class LoginFragment: Fragment() {
                             putString("email", email)
 
                             apply()
-                        }
-                        findNavController().navigate(R.id.action_nav_login_to_nav_farmerHomepage)
+                            startActivity(Intent(context, FarmerActivity::class.java))
+                            }
+
                     }
                 }
             }

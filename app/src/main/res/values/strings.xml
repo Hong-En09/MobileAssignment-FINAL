@@ -83,4 +83,5 @@
     //Name,PhoneNumber,Status string take from Customer Order List
     <string name="acceptedProduct">Product:</string>
     <string name="detail">Detail</string>
+    <string name="title_activity_farmer">FarmerActivity</string>
 </resources>
