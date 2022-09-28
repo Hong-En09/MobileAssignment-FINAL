@@ -8,4 +8,10 @@
         android:id="@+id/farmerHomepageFragment"
         android:name="com.example.mobileassignment.ui.Homepage.FarmerHomepageFragment"
         android:label="FarmerHomepageFragment" />
+
+    <fragment
+        android:id="@+id/nav_productList"
+        android:name="com.example.mobileassignment.ui.ProductList.ProductListFragment"
+        android:label="@string/productList"
+        tools:layout="@layout/fragment_productlist" />
 </navigation>
