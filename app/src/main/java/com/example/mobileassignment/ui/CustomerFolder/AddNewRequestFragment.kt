@@ -1,15 +1,25 @@
 package com.example.mobileassignment.ui.CustomerFolder
 
+import android.content.Context
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.mobileassignment.Entity.ProductList
+import com.example.mobileassignment.Entity.RequestList
+import com.example.mobileassignment.Entity.User
+import com.example.mobileassignment.R
 import com.example.mobileassignment.databinding.FragmentAddNewrequestBinding
+import com.google.android.material.navigation.NavigationView
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
+import java.util.*
 
 class AddNewRequestFragment: Fragment() {
 
@@ -40,22 +50,40 @@ class AddNewRequestFragment: Fragment() {
         //Log.e("babiHongEn", resources.getDrawable(R.drawable.carrot).toString())
         //val dr: Drawable = resources.getDrawable(modelItem.image!!)
 
-        var mDrawableName = "carrot";
-        val resID = getResources().getIdentifier(mDrawableName , "drawable", context?.packageName);
-        val logoDrawable: Drawable = getResources().getDrawable(resID);
+        val sharedPreferences = activity?.getSharedPreferences("preferenceFile", Context.MODE_PRIVATE)
+
+
+
+
+        var mDrawableName = "carrot"
+        val resID = getResources().getIdentifier(mDrawableName , "drawable", context?.packageName)
+        val logoDrawable: Drawable = getResources().getDrawable(resID)
         binding.viewImage.setImageDrawable(logoDrawable)
 
-        //binding.viewImage.setImageResource(modelItem.image!!)
-        //binding.viewImage.setImageResource(R.drawable.)
-        //val Item = requireActivity().intent.extras!!.getSerializable("data")
-        Toast.makeText(context, "Profile Saved", Toast.LENGTH_SHORT).show()
+
+
+        binding.confirmRequestButton.setOnClickListener {
+            val product = binding.productName.text.toString()
+            val quantity = binding.quantityValue.text.toString()
+            val price = binding.priceValue.text.toString()
+            val username = sharedPreferences?.getString("username", null).toString()
+            val uniqueID = UUID.randomUUID().toString()
+            if(quantity.isNotEmpty() && price.isNotEmpty()){
+                val newRequest = RequestList(uniqueID,username,product,quantity,price)
+                val database: DatabaseReference = Firebase.database.getReference("requestList")
+                database.child(newRequest.uniqueID).setValue(newRequest)
+
+            }else{
+                Toast.makeText(context, "Request Fail to Created", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+
 
 
     }
 
-    private fun showData(product: ProductList){
 
-    }
 
     override fun onResume() {
         super.onResume()
