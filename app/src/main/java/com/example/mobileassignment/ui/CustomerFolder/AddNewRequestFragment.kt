@@ -50,22 +50,16 @@ class AddNewRequestFragment: Fragment() {
         //Log.e("babiHongEn", resources.getDrawable(R.drawable.carrot).toString())
         //val dr: Drawable = resources.getDrawable(modelItem.image!!)
 
-        val sharedPreferences = activity?.getSharedPreferences("preferenceFile", Context.MODE_PRIVATE)
-
-
+        val sharedPreferences =
+            activity?.getSharedPreferences("preferenceFile", Context.MODE_PRIVATE)
 
 
         var mDrawableName = "carrot"
-        val resID = getResources().getIdentifier(mDrawableName , "drawable", context?.packageName)
+        val resID = getResources().getIdentifier(mDrawableName, "drawable", context?.packageName)
         val logoDrawable: Drawable = getResources().getDrawable(resID)
         binding.viewImage.setImageDrawable(logoDrawable)
 
 
-
-        //binding.viewImage.setImageResource(modelItem.image!!)
-        //binding.viewImage.setImageResource(R.drawable.)
-        //val Item = requireActivity().intent.extras!!.getSerializable("data")
-        Toast.makeText(context, "Profile Saved", Toast.LENGTH_SHORT).show()
 
         binding.confirmRequestButton.setOnClickListener {
             val product = binding.productName.text.toString()
@@ -73,29 +67,24 @@ class AddNewRequestFragment: Fragment() {
             val price = binding.priceValue.text.toString()
             val username = sharedPreferences?.getString("username", null).toString()
             val uniqueID = UUID.randomUUID().toString()
-            if(quantity.isNotEmpty() && price.isNotEmpty()){
-                val newRequest = RequestList(uniqueID,username,product,quantity,price)
+            if (quantity.isNotEmpty() && price.isNotEmpty()) {
+                val newRequest = RequestList(uniqueID, username, product, quantity, price)
                 val database: DatabaseReference = Firebase.database.getReference("requestList")
                 database.child(newRequest.uniqueID).setValue(newRequest)
 
-            }else{
+            } else {
                 Toast.makeText(context, "Request Fail to Created", Toast.LENGTH_SHORT).show()
             }
         }
 
 
-
-
-    private fun showData(product: ProductList){
-
     }
 
+        override fun onResume() {
+            super.onResume()
+            (activity as AppCompatActivity?)!!.supportActionBar!!.show()
 
+        }
 
-    override fun onResume() {
-        super.onResume()
-        (activity as AppCompatActivity?)!!.supportActionBar!!.show()
-
-    }
 }
 
