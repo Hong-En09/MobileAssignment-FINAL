@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.mobileassignment.databinding.FragmentLoginBinding
-import com.example.mobileassignment.ui.CustomerFolder.CustomerActivity
+import com.example.mobileassignment.ui.Homepage.FarmerActivity
 import com.google.firebase.database.*
 
 class LoginFragment: Fragment() {
@@ -69,7 +69,7 @@ class LoginFragment: Fragment() {
                             putString("email", email)
 
                             apply()
-                            startActivity(Intent(context, CustomerActivity::class.java))
+                            startActivity(Intent(context, FarmerActivity::class.java))
                             }
 
                     }

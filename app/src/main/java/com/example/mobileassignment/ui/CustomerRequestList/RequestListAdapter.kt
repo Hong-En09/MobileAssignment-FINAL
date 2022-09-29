@@ -36,9 +36,9 @@ class RequestListAdapter : RecyclerView.Adapter<RequestListAdapter.ViewHolder>()
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val requestlist = dataSet[position]
-        holder.textItem.text = requestlist.item
-        holder.textQuantity.text = requestlist.quantity
+        //val requestlist = dataSet[position]
+        //holder.textItem.text = requestlist.item
+        //holder.textQuantity.text = requestlist.quantity
     }
 
     override fun getItemCount(): Int {

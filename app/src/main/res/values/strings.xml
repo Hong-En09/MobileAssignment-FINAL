@@ -89,6 +89,11 @@
     <string name="delete">Delete</string>
     <string name="detail">Detail</string>
     <string name="title_activity_farmer">FarmerActivity</string>
+    <string name="quantityTitleText">Quantity</string>
+    <string name="priceTitleView">Price (RM)</string>
+    <string name="byGramText" />
+    <string name="byGram">By Gram</string>
+    <string name="confirmTextView">Confirm</string>
     <string name="title_activity_product">ProductActivity</string>
     <string name="title_activity_customer">CustomerActivity</string>
 </resources>
