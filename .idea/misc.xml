@@ -18,7 +18,7 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/MobileAssignment - Copy/app/src/main/res/drawable/line.xml" value="0.2985" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MobileAssignment - Copy/app/src/main/res/drawable/record_divider.xml" value="0.2985" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MobileAssignment - Copy/app/src/main/res/layout/accepted_requestlist_layout.xml" value="0.33" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MobileAssignment - Copy/app/src/main/res/layout/activity_add_newrequest.xml" value="0.5" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MobileAssignment - Copy/app/src/main/res/layout/activity_add_newrequest.xml" value="0.33" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MobileAssignment - Copy/app/src/main/res/layout/activity_customer.xml" value="0.358695652173913" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MobileAssignment - Copy/app/src/main/res/layout/activity_farmer.xml" value="0.358695652173913" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MobileAssignment - Copy/app/src/main/res/layout/activity_main.xml" value="0.17831813576494426" />
@@ -44,6 +44,8 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/MobileAssignment - Copy/app/src/main/res/layout/fragment_register.xml" value="0.358695652173913" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MobileAssignment - Copy/app/src/main/res/layout/fragment_requestlist.xml" value="0.358695652173913" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MobileAssignment - Copy/app/src/main/res/layout/fragment_slideshow.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MobileAssignment - Copy/app/src/main/res/layout/nav_header_customer.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MobileAssignment - Copy/app/src/main/res/layout/nav_header_farmer.xml" value="0.358695652173913" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MobileAssignment - Copy/app/src/main/res/layout/nav_header_main.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MobileAssignment - Copy/app/src/main/res/layout/nav_header_product.xml" value="0.358695652173913" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MobileAssignment - Copy/app/src/main/res/layout/orderlist_layout.xml" value="0.358695652173913" />

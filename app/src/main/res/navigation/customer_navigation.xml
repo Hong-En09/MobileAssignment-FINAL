@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation2"
+    app:startDestination="@id/nav_productList">
+
+    <fragment
+        android:id="@+id/nav_productList"
+        android:name="com.example.mobileassignment.ui.ProductList.ProductListFragment"
+        android:label="@string/productList"
+        tools:layout="@layout/fragment_productlist" />
+
+    <fragment
+        android:id="@+id/nav_acceptedRequestList"
+        android:name="com.example.mobileassignment.ui.CustomerFolder.AcceptedRequestListFragment"
+        android:label="@string/acceptedRequestList"
+        tools:layout="@layout/fragment_accepted_requestlist" />
+
+</navigation>

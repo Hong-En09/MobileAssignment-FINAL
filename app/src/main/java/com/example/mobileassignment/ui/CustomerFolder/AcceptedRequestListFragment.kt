@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mobileassignment.databinding.FragmentAcceptedRequestlistBinding
 
 class AcceptedRequestListFragment: Fragment() {
@@ -31,5 +32,11 @@ class AcceptedRequestListFragment: Fragment() {
     override fun onResume() {
         super.onResume()
         (activity as AppCompatActivity?)!!.supportActionBar!!.show()
+
+        val rvAdapter = AcceptedRequestListAdapter()
+
+        //rvAdapter.setData(AcceptedRequestList)
+        binding.recycleAcceptedRequestList.layoutManager = LinearLayoutManager(activity?.applicationContext)
+        binding.recycleAcceptedRequestList.adapter = rvAdapter
     }
 }
