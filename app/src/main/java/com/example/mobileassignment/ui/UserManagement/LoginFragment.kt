@@ -9,11 +9,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.fragment.findNavController
-import com.example.mobileassignment.R
 import com.example.mobileassignment.databinding.FragmentLoginBinding
-import com.example.mobileassignment.ui.Homepage.FarmerActivity
+import com.example.mobileassignment.ui.CustomerFolder.CustomerActivity
 import com.google.firebase.database.*
 
 class LoginFragment: Fragment() {
@@ -72,7 +69,7 @@ class LoginFragment: Fragment() {
                             putString("email", email)
 
                             apply()
-                            startActivity(Intent(context, FarmerActivity::class.java))
+                            startActivity(Intent(context, CustomerActivity::class.java))
                             }
 
                     }

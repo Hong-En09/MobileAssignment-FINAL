@@ -3,14 +3,20 @@ package com.example.mobileassignment.ui.CustomerFolder
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.ui.AppBarConfiguration
 import com.example.mobileassignment.Entity.ProductList
 import com.example.mobileassignment.R
-import kotlinx.android.synthetic.main.activity_customer.*
+import com.example.mobileassignment.databinding.ActivityAddNewrequestBinding
+import kotlinx.android.synthetic.main.activity_add_newrequest.*
 
-class CustomerActivity : AppCompatActivity() {
+class AddNewRequestActivity : AppCompatActivity() {
+
+    private lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var binding: ActivityAddNewrequestBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_customer)
+        setContentView(R.layout.activity_add_newrequest)
 
         var modalItems: ProductList = intent.getSerializableExtra("data") as ProductList
 
@@ -18,5 +24,7 @@ class CustomerActivity : AppCompatActivity() {
 
         productName2.text = modalItems.name
         viewImage2.setImageResource(modalItems.image!!)
+
     }
+
 }

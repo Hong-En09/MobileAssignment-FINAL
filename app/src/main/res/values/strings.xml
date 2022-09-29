@@ -94,4 +94,6 @@
     <string name="byGramText" />
     <string name="byGram">By Gram</string>
     <string name="confirmTextView">Confirm</string>
+    <string name="title_activity_product">ProductActivity</string>
+    <string name="title_activity_customer">CustomerActivity</string>
 </resources>

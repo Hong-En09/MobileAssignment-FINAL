@@ -62,6 +62,11 @@ class AddNewRequestFragment: Fragment() {
 
 
 
+        //binding.viewImage.setImageResource(modelItem.image!!)
+        //binding.viewImage.setImageResource(R.drawable.)
+        //val Item = requireActivity().intent.extras!!.getSerializable("data")
+        Toast.makeText(context, "Profile Saved", Toast.LENGTH_SHORT).show()
+
         binding.confirmRequestButton.setOnClickListener {
             val product = binding.productName.text.toString()
             val quantity = binding.quantityValue.text.toString()
@@ -80,6 +85,8 @@ class AddNewRequestFragment: Fragment() {
 
 
 
+
+    private fun showData(product: ProductList){
 
     }
 
