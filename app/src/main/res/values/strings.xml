@@ -89,4 +89,6 @@
     <string name="delete">Delete</string>
     <string name="detail">Detail</string>
     <string name="title_activity_farmer">FarmerActivity</string>
+    <string name="title_activity_product">ProductActivity</string>
+    <string name="title_activity_customer">CustomerActivity</string>
 </resources>

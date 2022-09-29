@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment
 import com.example.mobileassignment.Entity.ProductList
 import com.example.mobileassignment.R
 import com.example.mobileassignment.databinding.FragmentProductlistBinding
-import com.example.mobileassignment.ui.CustomerFolder.CustomerActivity
+import com.example.mobileassignment.ui.CustomerFolder.AddNewRequestActivity
 import kotlinx.android.synthetic.main.fragment_productlist.*
 
 
@@ -83,7 +83,7 @@ class ProductListFragment: Fragment() {
             //view.findNavController().navigate(R.id.nav_addNewRequest, bundle)
 
 
-            var intent = Intent (view.context, CustomerActivity::class.java)
+            var intent = Intent (view.context, AddNewRequestActivity::class.java)
             intent.putExtra("data", modalList[i])
             startActivity(intent)
         }

@@ -45,6 +45,7 @@ class AddNewRequestFragment: Fragment() {
         val logoDrawable: Drawable = getResources().getDrawable(resID);
         binding.viewImage.setImageDrawable(logoDrawable)
 
+
         //binding.viewImage.setImageResource(modelItem.image!!)
         //binding.viewImage.setImageResource(R.drawable.)
         //val Item = requireActivity().intent.extras!!.getSerializable("data")
@@ -52,6 +53,7 @@ class AddNewRequestFragment: Fragment() {
 
 
     }
+
 
     private fun showData(product: ProductList){
 

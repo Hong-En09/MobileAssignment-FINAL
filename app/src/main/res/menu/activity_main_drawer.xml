@@ -15,7 +15,9 @@
             android:title="@string/requestList" />
     </group>
 
-    <item android:title="@string/account">
+    <item
+        android:enabled="false"
+        android:title="@string/account">
         <menu>
             <item
                 android:id="@+id/nav_profile"
