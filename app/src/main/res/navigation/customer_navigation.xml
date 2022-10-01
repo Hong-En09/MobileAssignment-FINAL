@@ -17,4 +17,9 @@
         android:label="@string/acceptedRequestList"
         tools:layout="@layout/fragment_accepted_requestlist" />
 
+    <activity
+        android:id="@+id/nav_profile"
+        android:name="com.example.mobileassignment.ui.Profile.ProfileActivity"
+        android:label="@string/profile"
+        tools:layout="@layout/activity_profile" />
 </navigation>

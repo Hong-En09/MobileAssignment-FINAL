@@ -34,4 +34,10 @@
         android:name="com.example.mobileassignment.ui.FarmerFolder.CustomerOrderListFragment"
         android:label="@string/requestList"
         tools:layout="@layout/fragment_customer_orderlist" />
+
+    <activity
+        android:id="@+id/nav_profile"
+        android:name="com.example.mobileassignment.ui.Profile.ProfileActivity"
+        android:label="@string/profile"
+        tools:layout="@layout/activity_profile" />
 </navigation>
