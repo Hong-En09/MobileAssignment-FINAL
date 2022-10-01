@@ -15,10 +15,12 @@ class CustomerOrderListAdapter : RecyclerView.Adapter<CustomerOrderListAdapter.V
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         //view (parameter) refers to the layout hosting each record
-        val textName: TextView = view.findViewById(R.id.acceptedName)
-        val textProduct: TextView = view.findViewById(R.id.acceptedProduct)
-        val textPrice: TextView = view.findViewById(R.id.acceptedPrice)
-        val textQuantity: TextView = view.findViewById(R.id.acceptedQuantity)
+        val textName: TextView = view.findViewById(R.id.usernameAccepted)
+        val textProduct: TextView = view.findViewById(R.id.productAccepted)
+        val textPrice: TextView = view.findViewById(R.id.priceAccepted)
+        val textQuantity: TextView = view.findViewById(R.id.quantityAccepted)
+        val textStatus: TextView = view.findViewById(R.id.statusAccepted)
+        val textAddress: TextView = view.findViewById(R.id.addressAccepted)
 
         init {
             view.setOnClickListener{
@@ -44,6 +46,8 @@ class CustomerOrderListAdapter : RecyclerView.Adapter<CustomerOrderListAdapter.V
         holder.textProduct.text = orderList.product
         holder.textQuantity.text = orderList.quantity
         holder.textPrice.text = orderList.price
+        holder.textStatus.text = orderList.status
+
 
     }
 

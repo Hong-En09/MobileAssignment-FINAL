@@ -8,7 +8,7 @@
     tools:context=".ui.FarmerFolder.ContractDetailActivity">
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/contractImageView"
         android:layout_width="137dp"
         android:layout_height="108dp"
         android:layout_marginStart="45dp"
@@ -46,9 +46,9 @@
         android:layout_marginStart="60dp"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="@+id/imageView5"
+        app:layout_constraintBottom_toBottomOf="@+id/contractImageView"
+        app:layout_constraintStart_toEndOf="@+id/contractImageView"
+        app:layout_constraintTop_toTopOf="@+id/contractImageView"
         app:layout_constraintVertical_bias="0.505" />
 
     <TextView
@@ -62,7 +62,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.159"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        app:layout_constraintTop_toBottomOf="@+id/contractImageView" />
 
     <TextView
         android:id="@+id/textViewQuantityORWeight"
@@ -72,9 +72,19 @@
         android:text="@string/quantityORweight"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/textViewCustomerName"
         app:layout_constraintStart_toStartOf="@+id/textViewCustomerName"
         app:layout_constraintTop_toBottomOf="@+id/textViewCustomerName" />
+
+    <TextView
+        android:id="@+id/textViewQuantityORWeight2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/priceTitleView"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/textViewQuantityORWeight"
+        app:layout_constraintTop_toBottomOf="@+id/textViewQuantityORWeight" />
 
     <TextView
         android:id="@+id/textViewLocation"
@@ -84,8 +94,8 @@
         android:text="@string/location"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/textViewQuantityORWeight"
-        app:layout_constraintTop_toBottomOf="@+id/textViewQuantityORWeight" />
+        app:layout_constraintStart_toStartOf="@+id/textViewQuantityORWeight2"
+        app:layout_constraintTop_toBottomOf="@+id/textViewQuantityORWeight2" />
 
     <TextView
         android:id="@+id/CustomerName"
@@ -106,8 +116,21 @@
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewQuantityORWeight"
-        app:layout_constraintStart_toEndOf="@+id/textViewQuantityORWeight"
+        app:layout_constraintEnd_toEndOf="@+id/CustomerName"
+        app:layout_constraintStart_toStartOf="@+id/CustomerName"
         app:layout_constraintTop_toTopOf="@+id/textViewQuantityORWeight" />
+
+    <TextView
+        android:id="@+id/priceContract"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewQuantityORWeight2"
+        app:layout_constraintEnd_toEndOf="@+id/QuantityORWeight"
+        app:layout_constraintStart_toStartOf="@+id/QuantityORWeight"
+        app:layout_constraintTop_toTopOf="@+id/textViewQuantityORWeight2" />
 
     <TextView
         android:id="@+id/Location"
@@ -117,7 +140,8 @@
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewLocation"
-        app:layout_constraintStart_toEndOf="@+id/textViewLocation"
+        app:layout_constraintEnd_toEndOf="@+id/priceContract"
+        app:layout_constraintStart_toStartOf="@+id/priceContract"
         app:layout_constraintTop_toTopOf="@+id/textViewLocation" />
 
     <Button
