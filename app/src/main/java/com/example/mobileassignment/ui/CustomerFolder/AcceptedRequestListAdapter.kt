@@ -1,29 +1,32 @@
 package com.example.mobileassignment.ui.CustomerFolder
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mobileassignment.Entity.AcceptedRequestList
+import com.example.mobileassignment.Entity.RequestList
 import com.example.mobileassignment.R
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class AcceptedRequestListAdapter: RecyclerView.Adapter<AcceptedRequestListAdapter.ViewHolder>() {
 
-    //private var dataSet = emptyList<AcceptedRequestList>()
-    private var acceptedRequest = AcceptedRequestList("aaa","carrot", "0123456789", "Pending")
-    private var acceptedRequest2 = AcceptedRequestList("aaa","carrot", "0123456789", "Pending")
-    private var acceptedRequest3 = AcceptedRequestList("aaa","carrot", "0123456789", "Pending")
-    private var acceptedRequest4 = AcceptedRequestList("aaa","carrot", "0123456789", "Pending")
-    private var acceptedRequest5 = AcceptedRequestList("aaa","carrot", "0123456789", "Pending")
-    private var acceptedRequest6 = AcceptedRequestList("aaa","carrot", "0123456789", "Pending")
-    private var dataSet = arrayListOf<AcceptedRequestList>(acceptedRequest, acceptedRequest2, acceptedRequest3, acceptedRequest4,acceptedRequest5,acceptedRequest6)
+    private var dataSet = emptyList<AcceptedRequestList>()
 
-    class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
+
+
+    inner class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         //view (parameter) refers to the layout hosting each record
+
         val textName: TextView = view.findViewById(R.id.acceptedName)
         val textProduct: TextView = view.findViewById(R.id.acceptedProduct)
-        val textPhoneNum: TextView = view.findViewById(R.id.acceptedPhoneNum)
+        val textPrice: TextView = view.findViewById(R.id.acceptedPrice)
+        val textQuantity: TextView = view.findViewById(R.id.acceptedQuantity)
         val textStatus: TextView = view.findViewById(R.id.acceptedStatus)
 
         init {
@@ -32,9 +35,12 @@ class AcceptedRequestListAdapter: RecyclerView.Adapter<AcceptedRequestListAdapte
             }
         }
     }
-
+   // internal fun setAcceptedRequestList(acceptedRequestList: List<AcceptedRequestList>){
+   //     dataSet = acceptedRequestList
+   //     notifyDataSetChanged() //refresh the RecyclerView
+    //}
     internal fun setAcceptedRequestList(acceptedRequestList: List<AcceptedRequestList>){
-        //dataSet = acceptedRequestList
+        dataSet = acceptedRequestList
         notifyDataSetChanged() //refresh the RecyclerView
     }
 
@@ -46,10 +52,13 @@ class AcceptedRequestListAdapter: RecyclerView.Adapter<AcceptedRequestListAdapte
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val orderList = dataSet[position]
-        holder.textName.text = orderList.name
+        holder.textName.text = orderList.username
         holder.textProduct.text = orderList.product
-        holder.textPhoneNum.text = orderList.phoneNum
+        holder.textQuantity.text = orderList.quantity
+        holder.textPrice.text = orderList.price
         holder.textStatus.text = orderList.status
+
+
 
     }
 

@@ -16,8 +16,16 @@
         tools:layout="@layout/fragment_productlist" />
 
     <fragment
-        android:id="@+id/nav_customerRequestList"
+        android:id="@+id/nav_requestList"
         android:name="com.example.mobileassignment.ui.CustomerRequestList.RequestListFragment"
         android:label="@string/requestList"
-        tools:layout="@layout/fragment_requestlist" />
+        tools:layout="@layout/fragment_requestlist" >
+        <action
+            android:id="@+id/action_nav_requestList_to_contractDetailFragment"
+            app:destination="@id/contractDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contractDetailFragment"
+        android:name="com.example.mobileassignment.ui.FarmerFolder.ContractDetailFragment"
+        android:label="ContractDetailFragment" />
 </navigation>

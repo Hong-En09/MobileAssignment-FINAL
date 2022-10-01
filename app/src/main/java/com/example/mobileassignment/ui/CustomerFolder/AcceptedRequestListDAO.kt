@@ -11,7 +11,7 @@ interface AcceptedRequestListDAO {
     @Query("SELECT * FROM AcceptedRequestList")
     fun getAll(): LiveData<List<AcceptedRequestList>>
 
-    @Query("SELECT * FROM AcceptedRequestList WHERE name LIKE :name")
+    @Query("SELECT * FROM AcceptedRequestList WHERE username LIKE :name")
     suspend fun findByName(name: String): AcceptedRequestList
 
     @Insert

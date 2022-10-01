@@ -75,7 +75,7 @@ class ProductListFragment: Fragment() {
             startActivity(intent)
         }*/
 
-        gridView.setOnItemClickListener{ adapterView, view, i, l ->
+        gridView.setOnItemClickListener{ _, view, i, _ ->
             //var modal = ProductList(modalList[i].name.toString(), modalList[i].image!!.toInt())
             //var intent = Intent(requireContext(), AddNewRequestFragment::class.java)
             //val bundle = Bundle()

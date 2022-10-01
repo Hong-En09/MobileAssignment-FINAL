@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="@string/phoneNum"
+        android:text="@string/priceTitleView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textAcceptedProduct" />
 
@@ -45,6 +45,16 @@
         android:layout_marginBottom="16dp"
         android:text="@string/status"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textAcceptedQuantity" />
+
+    <TextView
+        android:id="@+id/textAcceptedQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/quantityORweight"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textAcceptedPhoneNum" />
 
@@ -69,7 +79,7 @@
         app:layout_constraintTop_toTopOf="@+id/textAcceptedProduct" />
 
     <TextView
-        android:id="@+id/acceptedPhoneNum"
+        android:id="@+id/acceptedPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -77,6 +87,16 @@
         app:layout_constraintBottom_toBottomOf="@+id/textAcceptedPhoneNum"
         app:layout_constraintStart_toEndOf="@+id/textAcceptedPhoneNum"
         app:layout_constraintTop_toTopOf="@+id/textAcceptedPhoneNum" />
+
+    <TextView
+        android:id="@+id/acceptedQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="0123456789"
+        app:layout_constraintBottom_toBottomOf="@+id/textAcceptedQuantity"
+        app:layout_constraintStart_toEndOf="@+id/textAcceptedQuantity"
+        app:layout_constraintTop_toTopOf="@+id/textAcceptedQuantity" />
 
     <TextView
         android:id="@+id/acceptedStatus"

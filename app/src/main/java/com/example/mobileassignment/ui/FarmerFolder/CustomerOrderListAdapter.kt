@@ -5,19 +5,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mobileassignment.Entity.AcceptedRequestList
 import com.example.mobileassignment.Entity.CustomerOrderList
 import com.example.mobileassignment.R
 
 class CustomerOrderListAdapter : RecyclerView.Adapter<CustomerOrderListAdapter.ViewHolder>() {
 
-    private var dataSet = emptyList<CustomerOrderList>()
+    private var dataSet = emptyList<AcceptedRequestList>()
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         //view (parameter) refers to the layout hosting each record
-        val textName: TextView = view.findViewById(R.id.name)
-        val textAddress: TextView = view.findViewById<TextView>(R.id.address)
-        val textPhoneNum: TextView = view.findViewById(R.id.phoneNumber)
-        val textStatus: TextView = view.findViewById(R.id.status)
+        val textName: TextView = view.findViewById(R.id.acceptedName)
+        val textProduct: TextView = view.findViewById(R.id.acceptedProduct)
+        val textPrice: TextView = view.findViewById(R.id.acceptedPrice)
+        val textQuantity: TextView = view.findViewById(R.id.acceptedQuantity)
 
         init {
             view.setOnClickListener{
@@ -26,7 +27,7 @@ class CustomerOrderListAdapter : RecyclerView.Adapter<CustomerOrderListAdapter.V
         }
     }
 
-    internal fun setCustomerOrderList(orderList: List<CustomerOrderList>){
+    internal fun setCustomerOrderList(orderList: List<AcceptedRequestList>){
         dataSet = orderList
         notifyDataSetChanged() //refresh the RecyclerView
     }
@@ -39,10 +40,10 @@ class CustomerOrderListAdapter : RecyclerView.Adapter<CustomerOrderListAdapter.V
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val orderList = dataSet[position]
-        holder.textName.text = orderList.name
-        holder.textAddress.text = orderList.address
-        holder.textPhoneNum.text = orderList.phoneNum
-        holder.textStatus.text = orderList.status
+        holder.textName.text = orderList.username
+        holder.textProduct.text = orderList.product
+        holder.textQuantity.text = orderList.quantity
+        holder.textPrice.text = orderList.price
 
     }
 
