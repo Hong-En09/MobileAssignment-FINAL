@@ -1,19 +1,18 @@
 package com.example.mobileassignment.ui.CustomerRequestList
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.BitmapFactory
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mobileassignment.Entity.AcceptedRequestList
 import com.example.mobileassignment.R
+import com.example.mobileassignment.ui.FarmerFolder.ContractDetailActivity
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.firebase.storage.FirebaseStorage
 
@@ -68,13 +67,17 @@ class RequestListAdapter : RecyclerView.Adapter<RequestListAdapter.ViewHolder>()
         holder.buttonChoose.setOnClickListener {
 
 
-            holder.preferences.edit().putString("preferenceFile",requestlist.uniqueID)
-            it.findNavController().navigate(R.id.action_nav_requestList_to_contractDetailFragment)
+            holder.preferences.edit().putString("uniqueID",requestlist.uniqueID).apply()
+            //it.findNavController().navigate(R.id.action_nav_requestList_to_contractDetailFragment)
 
+            //val intent = Intent(holder.itemView.context, ContractDetailActivity::class.java)
+            //holder.itemView.context.startActivity(intent)
 
+            val context = holder.itemView.context
+            val intent = Intent( context, ContractDetailActivity::class.java)
+            //context.startActivity(intent)
 
-
-
+            holder.itemView.getContext().startActivity(intent);
         }
     }
 
@@ -86,4 +89,6 @@ class RequestListAdapter : RecyclerView.Adapter<RequestListAdapter.ViewHolder>()
     override fun getItemCount(): Int {
         return dataSet.size
     }
+
+
 }
