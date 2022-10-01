@@ -80,4 +80,6 @@ class CustomerActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_customer)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
+
 }

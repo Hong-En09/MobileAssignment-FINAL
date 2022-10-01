@@ -1,30 +1,40 @@
 package com.example.mobileassignment.ui.CustomerRequestList
 
+import android.content.Context
+import android.graphics.BitmapFactory
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mobileassignment.Entity.RequestList
+import com.example.mobileassignment.Entity.AcceptedRequestList
 import com.example.mobileassignment.R
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.firebase.storage.FirebaseStorage
+
 
 class RequestListAdapter : RecyclerView.Adapter<RequestListAdapter.ViewHolder>() {
 
-    private var dataSet = emptyList<RequestList>()
+    private var dataSet = emptyList<AcceptedRequestList>()
+    private lateinit var uniqueID: String
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         //view (parameter) refers to the layout hosting each record
+        val imageItem: ImageView = view.findViewById(R.id.imageViewProduct)
         val textItem: TextView = view.findViewById(R.id.textViewItem)
-        val textQuantity: TextView = view.findViewById<TextView>(R.id.textViewQuantity)
+        val textQuantity: TextView = view.findViewById(R.id.textViewQuantity)
+        val buttonChoose: Button = view.findViewById(R.id.buttonChoose)
+        val preferences = view.context.getSharedPreferences("preferenceFile", Context.MODE_PRIVATE)!!
 
-        init {
-            view.setOnClickListener{
-                //todo: handle click event
-            }
-        }
+
     }
 
-    internal fun setReuestList(requestList: List<RequestList>){
+    internal fun setRequestList(requestList: List<AcceptedRequestList>){
         dataSet = requestList
         notifyDataSetChanged() //refresh the RecyclerView
     }
@@ -36,9 +46,41 @@ class RequestListAdapter : RecyclerView.Adapter<RequestListAdapter.ViewHolder>()
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        //val requestlist = dataSet[position]
-        //holder.textItem.text = requestlist.item
-        //holder.textQuantity.text = requestlist.quantity
+        val requestlist = dataSet[position]
+        val product = requestlist.product
+        val storageRef = FirebaseStorage.getInstance().reference
+
+        val photoRef = storageRef.child(product + ".png")
+        val ONE_MEGABYTE = (1024 * 1024).toLong()
+        photoRef.getBytes(ONE_MEGABYTE)
+            .addOnSuccessListener { bytes ->
+                val bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
+                holder.imageItem.setImageBitmap(bmp)
+            }.addOnFailureListener(OnFailureListener {
+
+            })
+
+
+
+        holder.textItem.text = requestlist.product
+        holder.textQuantity.text = requestlist.quantity
+
+        holder.buttonChoose.setOnClickListener {
+
+
+            holder.preferences.edit().putString("preferenceFile",requestlist.uniqueID)
+            it.findNavController().navigate(R.id.action_nav_requestList_to_contractDetailFragment)
+
+
+
+
+
+        }
+    }
+
+    private fun getData(uniqueID:String):String {
+
+        return uniqueID
     }
 
     override fun getItemCount(): Int {

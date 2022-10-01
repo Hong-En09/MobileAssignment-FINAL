@@ -7,7 +7,7 @@
     android:backgroundTint="#000000">
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/contractImage"
         android:layout_width="137dp"
         android:layout_height="108dp"
         android:layout_marginStart="45dp"
@@ -45,9 +45,9 @@
         android:layout_marginStart="60dp"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="@+id/imageView5"
+        app:layout_constraintBottom_toBottomOf="@+id/contractImage"
+        app:layout_constraintStart_toEndOf="@+id/contractImage"
+        app:layout_constraintTop_toTopOf="@+id/contractImage"
         app:layout_constraintVertical_bias="0.505" />
 
     <TextView
@@ -61,7 +61,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.159"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        app:layout_constraintTop_toBottomOf="@+id/contractImage" />
 
     <TextView
         android:id="@+id/textViewQuantityORWeight"

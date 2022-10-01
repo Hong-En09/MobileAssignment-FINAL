@@ -6,16 +6,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.mobileassignment.Entity.ProductList
 import com.example.mobileassignment.Entity.RequestList
-import com.example.mobileassignment.Entity.User
-import com.example.mobileassignment.R
 import com.example.mobileassignment.databinding.FragmentAddNewrequestBinding
-import com.google.android.material.navigation.NavigationView
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
@@ -70,7 +66,8 @@ class AddNewRequestFragment: Fragment() {
             if (quantity.isNotEmpty() && price.isNotEmpty()) {
                 val newRequest = RequestList(uniqueID, username, product, quantity, price)
                 val database: DatabaseReference = Firebase.database.getReference("requestList")
-                database.child(newRequest.uniqueID).setValue(newRequest)
+
+                database.child(uniqueID).setValue(newRequest)
 
             } else {
                 Toast.makeText(context, "Request Fail to Created", Toast.LENGTH_SHORT).show()

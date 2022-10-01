@@ -24,6 +24,8 @@ class FarmerActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityFarmerBinding
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -39,7 +41,7 @@ class FarmerActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.farmerHomepageFragment, R.id.nav_productList, R.id.nav_customerRequestList
+                R.id.farmerHomepageFragment, R.id.nav_productList, R.id.nav_requestList
             ), drawerLayout
         )
 

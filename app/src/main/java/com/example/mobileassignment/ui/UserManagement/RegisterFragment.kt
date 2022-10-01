@@ -57,6 +57,7 @@ class RegisterFragment: Fragment() {
             userViewModel.userList.observe(viewLifecycleOwner){
                 userViewModel.syncUser()
                 Toast.makeText(context, "Profile Saved", Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.nav_login)
 
 
             }
