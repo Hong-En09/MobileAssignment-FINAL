@@ -108,25 +108,14 @@
         app:layout_constraintStart_toEndOf="@+id/textAcceptedStatus"
         app:layout_constraintTop_toTopOf="@+id/textAcceptedStatus" />
 
-    <Button
-        android:id="@+id/buttonEdit"
-        android:layout_width="84dp"
-        android:layout_height="48dp"
+    <ImageView
+        android:id="@+id/imageViewDeleteButton"
+        android:layout_width="41dp"
+        android:layout_height="37dp"
         android:layout_marginEnd="32dp"
-        android:text="@string/edit"
-        app:layout_constraintBottom_toBottomOf="@+id/textAcceptedProduct"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/buttonDelete"
-        app:layout_constraintTop_toTopOf="@+id/textAcceptedName" />
-
-    <Button
-        android:id="@+id/buttonDelete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:text="@string/delete"
         app:layout_constraintBottom_toBottomOf="@+id/textAcceptedStatus"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textAcceptedPhoneNum" />
+        app:layout_constraintTop_toTopOf="@+id/textAcceptedName"
+        app:srcCompat="@drawable/ic_baseline_delete_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

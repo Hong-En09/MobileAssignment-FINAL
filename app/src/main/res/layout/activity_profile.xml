@@ -7,13 +7,134 @@
     android:layout_height="match_parent"
     tools:context=".ui.Profile.ProfileActivity">
 
-  <TextView
-      android:id="@+id/textView3"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="@string/profile"
-      app:layout_constraintBottom_toBottomOf="parent"
+  <ImageView
+      android:id="@+id/imageView4"
+      android:layout_width="181dp"
+      android:layout_height="181dp"
+      android:layout_marginTop="60dp"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
+      app:layout_constraintTop_toTopOf="parent"
+      tools:srcCompat="@tools:sample/avatars" />
+
+  <TextView
+      android:id="@+id/textProfileUsername"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="24dp"
+      android:layout_marginTop="24dp"
+      android:text="@string/username"
+      android:textColor="#000000"
+      android:textSize="16sp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+  <TextView
+      android:id="@+id/textProfileEmail"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="24dp"
+      android:layout_marginTop="24dp"
+      android:text="@string/email"
+      android:textColor="#000000"
+      android:textSize="16sp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/fixedProfileUsername" />
+
+  <TextView
+      android:id="@+id/fixedProfileUsername"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="24dp"
+      android:textSize="20sp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textProfileUsername" />
+
+  <TextView
+      android:id="@+id/fixedProfileEmail"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="24dp"
+      android:textSize="20sp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textProfileEmail" />
+
+  <TextView
+      android:id="@+id/textProfilePhoneNumber"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="24dp"
+      android:layout_marginTop="24dp"
+      android:text="@string/phone"
+      android:textColor="#000000"
+      android:textSize="16sp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/fixedProfileEmail" />
+
+  <EditText
+      android:id="@+id/editProfilePhoneNumber"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="24dp"
+      android:layout_marginEnd="24dp"
+      android:ems="10"
+      android:hint="@string/phone"
+      android:inputType="number"
+      android:minHeight="48dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textProfilePhoneNumber" />
+
+  <TextView
+      android:id="@+id/textProfileAddress"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="24dp"
+      android:layout_marginTop="24dp"
+      android:text="@string/registerAddress"
+      android:textColor="#000000"
+      android:textSize="16sp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/editProfilePhoneNumber" />
+
+  <EditText
+      android:id="@+id/editProfileAddress"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="24dp"
+      android:layout_marginEnd="24dp"
+      android:ems="10"
+      android:hint="@string/registerAddress"
+      android:inputType="textPersonName"
+      android:minHeight="48dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textProfileAddress" />
+
+  <TextView
+      android:id="@+id/textProfilePassword"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="24dp"
+      android:layout_marginTop="24dp"
+      android:text="@string/password"
+      android:textColor="#000000"
+      android:textSize="16sp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/editProfileAddress" />
+
+  <EditText
+      android:id="@+id/editProfilePassword"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="24dp"
+      android:layout_marginEnd="24dp"
+      android:ems="10"
+      android:hint="@string/password"
+      android:inputType="textPassword"
+      android:minHeight="48dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textProfilePassword" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
