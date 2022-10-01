@@ -42,47 +42,95 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
         android:text="@string/quantityTitleText"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewPhoneNumber" />
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/textViewAddressAccepted"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/address"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewStatus" />
+
+    <TextView
+        android:id="@+id/statusTitleView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/status"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAddressAccepted" />
+
+    <TextView
+        android:id="@+id/usernameAccepted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewName"
         app:layout_constraintStart_toEndOf="@+id/textViewName"
         app:layout_constraintTop_toTopOf="@+id/textViewName" />
 
     <TextView
-        android:id="@+id/address"
+        android:id="@+id/productAccepted"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewAddress"
-        app:layout_constraintStart_toEndOf="@+id/textViewAddress"
+        app:layout_constraintEnd_toEndOf="@+id/usernameAccepted"
+        app:layout_constraintStart_toStartOf="@+id/usernameAccepted"
         app:layout_constraintTop_toTopOf="@+id/textViewAddress" />
 
     <TextView
-        android:id="@+id/phoneNumber"
+        android:id="@+id/priceAccepted"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewPhoneNumber"
-        app:layout_constraintStart_toEndOf="@+id/textViewPhoneNumber"
-        app:layout_constraintTop_toTopOf="@+id/textViewPhoneNumber" />
+        app:layout_constraintEnd_toEndOf="@+id/productAccepted"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/productAccepted"
+        app:layout_constraintTop_toTopOf="@+id/textViewPhoneNumber"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/status"
+        android:id="@+id/quantityAccepted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewStatus"
+        app:layout_constraintEnd_toEndOf="@+id/priceAccepted"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/priceAccepted"
+        app:layout_constraintTop_toTopOf="@+id/textViewStatus"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/addressAccepted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewAddressAccepted"
+        app:layout_constraintEnd_toEndOf="@+id/quantityAccepted"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/quantityAccepted"
+        app:layout_constraintTop_toTopOf="@+id/textViewAddressAccepted"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/statusAccepted"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textViewStatus"
-        app:layout_constraintStart_toEndOf="@+id/textViewStatus"
-        app:layout_constraintTop_toTopOf="@+id/textViewStatus" />
+        app:layout_constraintBottom_toBottomOf="@+id/statusTitleView"
+        app:layout_constraintEnd_toEndOf="@+id/addressAccepted"
+        app:layout_constraintStart_toStartOf="@+id/addressAccepted"
+        app:layout_constraintTop_toTopOf="@+id/statusTitleView"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/buttonArrived"
@@ -90,8 +138,8 @@
         android:layout_height="55dp"
         android:layout_marginEnd="32dp"
         android:text="@string/arrived"
-        app:layout_constraintBottom_toBottomOf="@+id/status"
+        app:layout_constraintBottom_toBottomOf="@+id/statusAccepted"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/name" />
+        app:layout_constraintTop_toTopOf="@+id/usernameAccepted" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

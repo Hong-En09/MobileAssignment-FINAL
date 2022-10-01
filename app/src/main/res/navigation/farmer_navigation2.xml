@@ -28,4 +28,10 @@
         android:id="@+id/contractDetailFragment"
         android:name="com.example.mobileassignment.ui.FarmerFolder.ContractDetailFragment"
         android:label="ContractDetailFragment" />
+
+    <fragment
+        android:id="@+id/nav_customerOrderList"
+        android:name="com.example.mobileassignment.ui.FarmerFolder.CustomerOrderListFragment"
+        android:label="@string/requestList"
+        tools:layout="@layout/fragment_customer_orderlist" />
 </navigation>
