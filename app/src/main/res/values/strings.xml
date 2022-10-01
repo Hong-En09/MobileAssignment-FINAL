@@ -40,6 +40,8 @@
     //Register
     <string name="register">Register</string>
     <string name="email">Email</string>
+    <string name="phone">Phone Number</string>
+    <string name="registerAddress">Address</string>
     <string name="confirmPassword">Confirm Password</string>
     <string-array name="role">
         <item>Please Select Role</item>

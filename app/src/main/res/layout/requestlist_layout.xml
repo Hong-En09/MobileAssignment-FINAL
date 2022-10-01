@@ -52,4 +52,5 @@
         app:layout_constraintBottom_toBottomOf="@+id/textViewQuantity"
         app:layout_constraintStart_toEndOf="@+id/imageViewProduct"
         app:layout_constraintTop_toTopOf="@+id/textViewItem" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -30,7 +30,8 @@
         android:src="@drawable/logo"
         app:layout_constraintBottom_toBottomOf="@+id/textviewTitle3"
         app:layout_constraintStart_toEndOf="@+id/textviewTitle3"
-        app:layout_constraintTop_toTopOf="@+id/textviewTitle3" />
+        app:layout_constraintTop_toTopOf="@+id/textviewTitle3"
+        android:contentDescription="TODO" />
 
     <EditText
         android:id="@+id/usernameText"
@@ -43,7 +44,8 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="@+id/emailText"
         app:layout_constraintStart_toStartOf="@+id/emailText"
-        app:layout_constraintTop_toBottomOf="@+id/emailText" />
+        app:layout_constraintTop_toBottomOf="@+id/emailText"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/emailText"
@@ -58,7 +60,36 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textviewTitle3" />
+        app:layout_constraintTop_toBottomOf="@+id/textviewTitle3"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/registerPhoneNumber"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/phone"
+        android:inputType="number"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/usernameText"
+        app:layout_constraintStart_toStartOf="@+id/usernameText"
+        app:layout_constraintTop_toBottomOf="@+id/usernameText" />
+
+    <EditText
+        android:id="@+id/address"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/registerAddress"
+        android:inputType="textLongMessage|textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/registerPhoneNumber"
+        app:layout_constraintStart_toStartOf="@+id/registerPhoneNumber"
+        app:layout_constraintTop_toBottomOf="@+id/registerPhoneNumber" />
 
     <EditText
         android:id="@+id/passwordText"
@@ -70,8 +101,10 @@
         android:inputType="textPassword"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="@+id/usernameText"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/usernameText"
-        app:layout_constraintTop_toBottomOf="@+id/usernameText" />
+        app:layout_constraintTop_toBottomOf="@+id/address"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/passwordConfirmText"
