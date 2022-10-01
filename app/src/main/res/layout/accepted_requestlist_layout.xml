@@ -108,4 +108,5 @@
         app:layout_constraintBottom_toBottomOf="@+id/textAcceptedStatus"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textAcceptedPhoneNum" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
