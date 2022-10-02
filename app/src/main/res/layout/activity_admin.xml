@@ -6,50 +6,88 @@
     android:layout_height="match_parent"
     tools:context=".ui.Admin.AdminActivity">
 
+    <View
+        android:id="@+id/view3"
+        android:layout_width="2dp"
+        android:layout_height="205dp"
+        android:background="#c0c0c0"
+        app:layout_constraintBottom_toBottomOf="@+id/imageUploadAdmin"
+        app:layout_constraintEnd_toStartOf="@+id/imageUploadAdmin"
+        app:layout_constraintTop_toTopOf="@+id/imageUploadAdmin" />
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="2dp"
+        android:layout_height="205dp"
+        android:background="#c0c0c0"
+        app:layout_constraintBottom_toBottomOf="@+id/imageUploadAdmin"
+        app:layout_constraintStart_toEndOf="@+id/imageUploadAdmin"
+        app:layout_constraintTop_toTopOf="@+id/imageUploadAdmin" />
+
+    <View
+        android:id="@+id/view5"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="16dp"
+        android:background="#c0c0c0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageUploadAdmin" />
+
+    <View
+        android:id="@+id/view6"
+        android:layout_width="207dp"
+        android:layout_height="2dp"
+        android:layout_marginBottom="209dp"
+        android:background="#c0c0c0"
+        app:layout_constraintBottom_toBottomOf="@+id/imageUploadAdmin"
+        app:layout_constraintEnd_toEndOf="@+id/imageUploadAdmin"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/imageUploadAdmin" />
+
+    <View
+        android:id="@+id/view7"
+        android:layout_width="210dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="210dp"
+        android:background="#c0c0c0"
+        app:layout_constraintEnd_toEndOf="@+id/imageUploadAdmin"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="@+id/imageUploadAdmin"
+        app:layout_constraintTop_toTopOf="@+id/imageUploadAdmin" />
+
     <ImageView
         android:id="@+id/imageUploadAdmin"
         android:layout_width="205dp"
         android:layout_height="214dp"
         android:layout_marginStart="142dp"
-        android:layout_marginTop="32dp"
         android:layout_marginEnd="142dp"
         android:layout_marginBottom="471dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AdminPageTitle"
         tools:srcCompat="@tools:sample/avatars" />
 
     <EditText
         android:id="@+id/productValueAdmin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Product Name"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="@+id/imageUploadAdmin"
         app:layout_constraintStart_toStartOf="@+id/imageUploadAdmin"
         app:layout_constraintTop_toBottomOf="@+id/adminProductNameTitle" />
 
     <TextView
-        android:id="@+id/AdminPageTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="177dp"
-        android:text="@string/adminPageTitle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/adminProductNameTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="40dp"
         android:text="@string/adminProductPage"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/imageUploadAdmin"
         app:layout_constraintStart_toStartOf="@+id/imageUploadAdmin"
         app:layout_constraintTop_toBottomOf="@+id/imageUploadAdmin" />
@@ -61,6 +99,14 @@
         android:layout_marginTop="32dp"
         android:text="@string/uploadAdmin"
         app:layout_constraintEnd_toEndOf="@+id/productValueAdmin"
+        app:layout_constraintStart_toStartOf="@+id/productValueAdmin"
+        app:layout_constraintTop_toBottomOf="@+id/productValueAdmin" />
+
+    <TextView
+        android:id="@+id/textValidationProductName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="#FF0000"
         app:layout_constraintStart_toStartOf="@+id/productValueAdmin"
         app:layout_constraintTop_toBottomOf="@+id/productValueAdmin" />
 </androidx.constraintlayout.widget.ConstraintLayout>

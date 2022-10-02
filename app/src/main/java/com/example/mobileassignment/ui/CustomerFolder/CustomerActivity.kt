@@ -39,10 +39,11 @@ class CustomerActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_farmerHomepage, R.id.nav_productList, R.id.nav_acceptedRequestList
+                R.id.nav_productList, R.id.nav_acceptedRequestList
             ), drawerLayout
         )
 
+        //Session Function
         val sharedPreferences = getSharedPreferences("preferenceFile", Context.MODE_PRIVATE)
         val username = sharedPreferences?.getString("username", null)
         val email = sharedPreferences?.getString("email", null)
@@ -58,6 +59,7 @@ class CustomerActivity : AppCompatActivity() {
         drawerAccount.text = email.toString()
 
         navView.menu.findItem(R.id.nav_logout).setOnMenuItemClickListener { _ ->
+            //edit shared preference
             val logout: SharedPreferences.Editor = sharedPreferences.edit()
             logout.clear()
             logout.apply()
