@@ -98,4 +98,7 @@
     <string name="confirmTextView">Confirm</string>
     <string name="title_activity_product">ProductActivity</string>
     <string name="title_activity_customer">CustomerActivity</string>
+
+    //Profile
+    <string name="back">Back</string>
 </resources>

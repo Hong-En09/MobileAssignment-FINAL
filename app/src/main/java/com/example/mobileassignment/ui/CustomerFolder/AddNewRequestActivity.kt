@@ -1,7 +1,6 @@
 package com.example.mobileassignment.ui.CustomerFolder
 
 import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -11,8 +10,6 @@ import com.example.mobileassignment.Entity.AcceptedRequestList
 import com.example.mobileassignment.Entity.ProductList
 import com.example.mobileassignment.R
 import com.example.mobileassignment.databinding.ActivityAddNewrequestBinding
-import com.google.android.gms.tasks.OnSuccessListener
-import com.google.android.gms.tasks.Task
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
@@ -29,6 +26,7 @@ class AddNewRequestActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_newrequest)
+
 
         var modalItems: ProductList = intent.getSerializableExtra("data") as ProductList
 
@@ -75,5 +73,6 @@ class AddNewRequestActivity : AppCompatActivity() {
         }
 
     }
+
 
 }
