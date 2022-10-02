@@ -3,15 +3,11 @@ package com.example.mobileassignment.ui.FarmerFolder
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.util.AttributeSet
-import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mobileassignment.Entity.AcceptedRequestList
 import com.example.mobileassignment.R
-import com.example.mobileassignment.databinding.ActivityAddNewrequestBinding
-import com.example.mobileassignment.databinding.ActivityContractDetailBinding
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
@@ -43,6 +39,7 @@ class ContractDetailActivity : AppCompatActivity() {
         var price = ""
         var uniqueID = ""
         var address = ""
+        var phone = ""
         var status = "Processing"
         var dealer = sharedPreferences!!.getString("username", null).toString()
         var databaseRef = FirebaseDatabase.getInstance().reference.child("requestList")
@@ -57,7 +54,7 @@ class ContractDetailActivity : AppCompatActivity() {
                     price = ds.child("price").getValue(String::class.java).toString()
                     uniqueID = ds.child("uniqueID").getValue(String::class.java).toString()
                     address = ds.child("address").getValue(String::class.java).toString()
-                    //val location = ds.child("location").getValue(String::class.java)
+                    phone = ds.child("phone").getValue(String::class.java).toString()
                 }
                 val storageRef = FirebaseStorage.getInstance().reference
 
@@ -75,6 +72,8 @@ class ContractDetailActivity : AppCompatActivity() {
                 CustomerName.text = username
                 QuantityORWeight.text = quantity
                 priceContract.text = price
+                addressContract.text = address
+                phoneContract.text = phone
 
 
 
@@ -89,38 +88,15 @@ class ContractDetailActivity : AppCompatActivity() {
         button.setOnClickListener{
 
 
+            val database: DatabaseReference = Firebase.database.getReference("requestList")
 
-            var databaseRefUpdate = FirebaseDatabase.getInstance().reference.child("requestList")
-                .orderByChild("uniqueID").equalTo(uniqueIDRequest)
-            databaseRefUpdate.addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    for (ds in snapshot.children) {
-                        product = ds.child("product").getValue(String::class.java).toString()
-                        photoURL = ds.child("photoURL").getValue(String::class.java).toString()
-                        username = ds.child("username").getValue(String::class.java).toString()
-                        quantity = ds.child("quantity").getValue(String::class.java).toString()
-                        price = ds.child("price").getValue(String::class.java).toString()
-                        uniqueID = ds.child("uniqueID").getValue(String::class.java).toString()
-                        address = ds.child("address").getValue(String::class.java).toString()
-                    }
-                    val newRequest = AcceptedRequestList(uniqueID, username, product, quantity, price, status, photoURL, dealer,address)
-
-                    val database: DatabaseReference = Firebase.database.getReference("requestList")
-
-                    database.child(newRequest.uniqueID).setValue(newRequest)
-
-
-
-                }
-
-                override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
-                }
-
-        })
+            database.child(uniqueIDRequest).child("dealer").setValue(dealer)
+            database.child(uniqueIDRequest).child("status").setValue(status)
             Toast.makeText(this, "Request is successful created", Toast.LENGTH_SHORT).show()
             finish();
-    }
+        }
+
+
 
     }
 

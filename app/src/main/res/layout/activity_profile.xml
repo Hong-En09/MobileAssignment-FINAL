@@ -12,6 +12,7 @@
       android:layout_width="181dp"
       android:layout_height="181dp"
       android:layout_marginTop="60dp"
+      android:orientation="vertical"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
@@ -173,6 +174,9 @@
       app:layout_constraintBottom_toBottomOf="@+id/buttonChangeDetail"
       app:layout_constraintStart_toEndOf="@+id/buttonChangeDetail"
       app:layout_constraintTop_toTopOf="@+id/buttonChangeDetail" />
+      android:visibility="invisible"
+      tools:layout_editor_absoluteX="159dp"
+      tools:layout_editor_absoluteY="634dp" />
 
   <Button
       android:id="@+id/buttonBack"

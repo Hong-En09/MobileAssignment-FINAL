@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mobileassignment.Entity.AcceptedRequestList
@@ -16,6 +17,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.getValue
 import kotlinx.android.synthetic.main.accepted_requestlist_layout.*
+import kotlinx.android.synthetic.main.activity_profile.*
 
 class AcceptedRequestListFragment: Fragment() {
 
@@ -69,7 +71,7 @@ class AcceptedRequestListFragment: Fragment() {
 
                 }
 
-                requestAdapter.setAcceptedRequestList(requestList)
+               requestAdapter.setAcceptedRequestList(requestList)
 
 
             }
@@ -80,6 +82,7 @@ class AcceptedRequestListFragment: Fragment() {
                 TODO("Not yet implemented")
             }
         })
+
 
         binding.recycleAcceptedRequestList.layoutManager = LinearLayoutManager(activity?.applicationContext)
         binding.recycleAcceptedRequestList.adapter = requestAdapter

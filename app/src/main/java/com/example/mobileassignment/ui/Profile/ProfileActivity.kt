@@ -10,6 +10,13 @@ import android.util.Log
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import android.util.Log
+import android.view.View
+import android.widget.EditText
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.core.view.isVisible
+import com.example.mobileassignment.Entity.User
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mobileassignment.Entity.User
 import com.example.mobileassignment.R
@@ -34,6 +41,8 @@ class ProfileActivity : AppCompatActivity() {
             finish()
         }
 
+
+
         val sharedPreferences = getSharedPreferences("preferenceFile", Context.MODE_PRIVATE)
 
         var textUsername = sharedPreferences?.getString("username", null).toString()
@@ -50,29 +59,29 @@ class ProfileActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for(ds in snapshot.children){
                     pass = ds.child("password").getValue(String::class.java).toString()
-                    role = ds.child("role").getValue(String::class.java).toString()
                     email = ds.child("email").getValue(String::class.java).toString()
                     phone = ds.child("phoneNum").getValue(String::class.java).toString()
                     address = ds.child("address").getValue(String::class.java).toString()
                     url = ds.child("photoUrl").getValue(String::class.java).toString()
                 }
-                val storageRef = FirebaseStorage.getInstance().reference
+                if(url != ""){
+                    val storageRef = FirebaseStorage.getInstance().reference
 
-                val photoRef = storageRef.child("images/"+url)
-                val ONE_MEGABYTE = (1080 * 2246).toLong()
-                photoRef.getBytes(ONE_MEGABYTE)
-                    .addOnSuccessListener { bytes ->
-                        val bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
-                        profilePic.setImageBitmap(bmp)
-                    }.addOnFailureListener(OnFailureListener {
+                    val photoRef = storageRef.child("images/"+url)
+                    val ONE_MEGABYTE = (1920 * 1080).toLong()
+                    photoRef.getBytes(ONE_MEGABYTE)
+                        .addOnSuccessListener { bytes ->
+                            val bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
+                            profilePic.setImageBitmap(bmp)
+                        }.addOnFailureListener(OnFailureListener {
 
-                    })
+                        })
+                }
                 fixedProfileUsername.text = textUsername
                 fixedProfileEmail.text = email
                 editProfilePhoneNumber.text = phone
                 editProfileAddress.text = address
                 editProfilePassword.text = pass
-                showEditPassDialog(phone,address)
 
 
             }
@@ -82,6 +91,7 @@ class ProfileActivity : AppCompatActivity() {
             }
 
         })
+        showEditPassDialog()
 
         profilePic.setOnClickListener{
             selectImage()
@@ -97,6 +107,7 @@ class ProfileActivity : AppCompatActivity() {
         intent.type = "image/*"
         intent.action = Intent.ACTION_GET_CONTENT
         startActivityForResult(intent,100)
+        upload.isVisible = true
         return true
 
 
@@ -104,32 +115,37 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun uploadImage(){
 
-        val progressDialog = ProgressDialog(this)
-        progressDialog.setMessage("Uploading file...")
-        progressDialog.setCancelable(false)
-        progressDialog.show()
+        if(this::ImageUri.isInitialized){
+            val progressDialog = ProgressDialog(this)
+            progressDialog.setMessage("Uploading file...")
+            progressDialog.setCancelable(false)
+            progressDialog.show()
 
 
-        val fileName = UUID.randomUUID().toString()
-        val storageReference = FirebaseStorage.getInstance().getReference("images/$fileName")
-        storageReference.putFile(ImageUri)
-            .addOnSuccessListener {
-                Toast.makeText(this,"Successfully uploaded",Toast.LENGTH_SHORT).show()
+            val fileName = UUID.randomUUID().toString()
+            val storageReference = FirebaseStorage.getInstance().getReference("images/$fileName")
+            storageReference.putFile(ImageUri)
+                .addOnSuccessListener {
+                    Toast.makeText(this,"Successfully uploaded",Toast.LENGTH_SHORT).show()
 
-                if(progressDialog.isShowing) progressDialog.dismiss()
+                    if(progressDialog.isShowing) progressDialog.dismiss()
 
-            }.addOnFailureListener{
-                Toast.makeText(this,"Failed uploaded",Toast.LENGTH_SHORT).show()
+                }.addOnFailureListener{
+                    Toast.makeText(this,"Failed uploaded",Toast.LENGTH_SHORT).show()
 
-                if(progressDialog.isShowing) progressDialog.dismiss()
-            }
-        val sharedPreferences = getSharedPreferences("preferenceFile", Context.MODE_PRIVATE)
+                    if(progressDialog.isShowing) progressDialog.dismiss()
+                }
+            val sharedPreferences = getSharedPreferences("preferenceFile", Context.MODE_PRIVATE)
 
-        var username = sharedPreferences?.getString("username", null).toString()
-        val database: DatabaseReference = Firebase.database.getReference("user")
+            var username = sharedPreferences?.getString("username", null).toString()
+            val database: DatabaseReference = Firebase.database.getReference("user")
 
 
-        database.child(username).child("photoUrl").setValue(fileName)
+            database.child(username).child("photoUrl").setValue(fileName)
+        }else{
+            Toast.makeText(this,"Please select a new photo",Toast.LENGTH_SHORT).show()
+        }
+
     }
 
 
@@ -139,10 +155,11 @@ class ProfileActivity : AppCompatActivity() {
         if(requestCode == 100 && resultCode == RESULT_OK){
             ImageUri = data?.data!!
             profilePic.setImageURI(ImageUri)
+
         }
     }
 
-    private fun showEditPassDialog(argPhone:String, argAddress:String) {
+    private fun showEditPassDialog() {
 
         val sharedPreferences = getSharedPreferences("preferenceFile", Context.MODE_PRIVATE)
         val username = sharedPreferences?.getString("username", null).toString()
@@ -159,48 +176,34 @@ class ProfileActivity : AppCompatActivity() {
             val inflater = layoutInflater
             val dialogLayout = inflater.inflate(R.layout.edit_password_layout,null)
             val editTextPhone = dialogLayout.findViewById<EditText>(R.id.dialog_phone)
-            editTextPhone.setText(argPhone)
             val editTextAddress = dialogLayout.findViewById<EditText>(R.id.dialog_address)
-            editTextAddress.setText(argAddress)
-            val editTextOldPassword = dialogLayout.findViewById<EditText>(R.id.dialog_passwordOld)
             val editTextPassword = dialogLayout.findViewById<EditText>(R.id.dialog_password)
             val editTextConfirmPassword = dialogLayout.findViewById<EditText>(R.id.dialog_password)
             with(builder){
-                setTitle("Change Password")
+                setTitle("Update Profile")
                 setPositiveButton("Confirm"){ _, _ ->
                     val phone = editTextPhone.text.toString()
                     val address = editTextAddress.text.toString()
-                    val oldPass = editTextOldPassword.text.toString()
                     val newPass = editTextPassword.text.toString()
                     val conPass = editTextConfirmPassword.text.toString()
-                    if(password == oldPass){
-                        if(newPass == conPass){
-                            var databaseRefUpdate = FirebaseDatabase.getInstance().reference.child("user")
-                                .orderByChild("username").equalTo(username)
-                            databaseRefUpdate.addValueEventListener(object : ValueEventListener {
-                                override fun onDataChange(snapshot: DataSnapshot) {
-                                    for (ds in snapshot.children) {
-                                        updateUser = ds.child("username").getValue(String::class.java).toString()
-                                        updatePassword = newPass
-                                        updateRole = ds.child("role").getValue(String::class.java).toString()
-                                        updateEmail = ds.child("email").getValue(String::class.java).toString()
-                                        updatePhone = phone
-                                        updateAddress = address
-                                        updateUrl = ds.child("photoUrl").getValue(String::class.java).toString()
-                                    }
-                                    val newRequest = User(updateUser, updatePassword, updateRole, updateEmail, updatePhone, updateAddress, updateUrl)
-
-                                    val database: DatabaseReference = Firebase.database.getReference("user")
-
-                                    database.child(newRequest.username).setValue(newRequest)
-                                    Toast.makeText(context, "Password updated successfully.", Toast.LENGTH_SHORT).show()
+                        if(phone == "" && newPass == "" && conPass == "" && address == ""){
+                            Toast.makeText(context, "Nothing will be update", Toast.LENGTH_SHORT).show()
+                        }else{
+                            val database: DatabaseReference = Firebase.database.getReference("user")
+                            if(phone != ""){
+                                database.child(username).child("phoneNum").setValue(phone)
+                            }
+                            if(newPass != "" && conPass != ""){
+                                if(newPass == conPass) {
+                                    database.child(username).child("password").setValue(newPass)
                                 }
-                                override fun onCancelled(error: DatabaseError) {
-                                    Toast.makeText(context, "Something wrong...", Toast.LENGTH_SHORT).show()
-                                }
-                            })
+                            }
+                            if(address != ""){
+                                database.child(username).child("address").setValue(address)
+                            }
+
+                            Toast.makeText(context, "Profile updated successfully.", Toast.LENGTH_SHORT).show()
                         }
-                    }
                 }
                 setNegativeButton("Cancel"){dialog,which ->
                     Log.d("Main","Negative button clicked")

@@ -165,6 +165,7 @@
         android:layout_height="55dp"
         android:layout_marginEnd="32dp"
         android:text="@string/arrived"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/textViewPhoneNum"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/usernameAccepted" />
