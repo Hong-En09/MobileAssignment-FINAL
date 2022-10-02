@@ -27,7 +27,7 @@ class RequestListAdapter : RecyclerView.Adapter<RequestListAdapter.ViewHolder>()
         val imageItem: ImageView = view.findViewById(R.id.imageViewProduct)
         val textItem: TextView = view.findViewById(R.id.textViewItem)
         val textQuantity: TextView = view.findViewById(R.id.textViewQuantity)
-        val buttonChoose: Button = view.findViewById(R.id.buttonChoose)
+        val imageButtonChoose: Button = view.findViewById(R.id.imageButtonChoose)
         val preferences = view.context.getSharedPreferences("preferenceFile", Context.MODE_PRIVATE)!!
 
 
@@ -64,7 +64,7 @@ class RequestListAdapter : RecyclerView.Adapter<RequestListAdapter.ViewHolder>()
         holder.textItem.text = requestlist.product
         holder.textQuantity.text = requestlist.quantity
 
-        holder.buttonChoose.setOnClickListener {
+        holder.imageButtonChoose.setOnClickListener {
 
 
             holder.preferences.edit().putString("uniqueID",requestlist.uniqueID).apply()

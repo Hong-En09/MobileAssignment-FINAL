@@ -24,6 +24,7 @@
         <activity
             android:name=".ui.CustomerFolder.AddNewRequestActivity"
             android:exported="false"
+            android:label="@string/addNewRequest"
             android:parentActivityName=".ui.CustomerFolder.CustomerActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -32,10 +33,11 @@
         <activity
             android:name=".ui.Homepage.FarmerActivity"
             android:exported="false"
-            android:label="FarmerActivity"
+            android:label="@string/title_activity_farmer"
             android:theme="@style/Theme.MobileAssignment.NoActionBar" />
         <activity
             android:name=".ui.Profile.ProfileActivity"
+            android:label="@string/profile"
             android:exported="false" />
         <activity
             android:name=".ui.UserManagement.UserActivity"

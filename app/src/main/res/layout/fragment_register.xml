@@ -34,20 +34,6 @@
         android:contentDescription="TODO" />
 
     <EditText
-        android:id="@+id/usernameText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="@string/username"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="@+id/emailText"
-        app:layout_constraintStart_toStartOf="@+id/emailText"
-        app:layout_constraintTop_toBottomOf="@+id/emailText"
-        android:autofillHints="" />
-
-    <EditText
         android:id="@+id/emailText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -63,83 +49,160 @@
         app:layout_constraintTop_toBottomOf="@+id/textviewTitle3"
         android:autofillHints="" />
 
+    <TextView
+        android:id="@+id/textValidationEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textColor="#FF0000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailText" />
+
+    <EditText
+        android:id="@+id/usernameText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/username"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/emailText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/emailText"
+        app:layout_constraintTop_toBottomOf="@+id/textValidationEmail" />
+
+
+    <TextView
+        android:id="@+id/textValidationUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textColor="#FF0000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usernameText" />
+
     <EditText
         android:id="@+id/registerPhoneNumber"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/phone"
         android:inputType="number"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="@+id/usernameText"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/usernameText"
-        app:layout_constraintTop_toBottomOf="@+id/usernameText" />
+        app:layout_constraintTop_toBottomOf="@+id/textValidationUsername" />
+
+    <TextView
+        android:id="@+id/textValidationPhoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textColor="#FF0000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerPhoneNumber" />
 
     <EditText
         android:id="@+id/address"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/registerAddress"
         android:inputType="textLongMessage|textPersonName"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="@+id/registerPhoneNumber"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/registerPhoneNumber"
-        app:layout_constraintTop_toBottomOf="@+id/registerPhoneNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/textValidationPhoneNumber" />
+
+    <TextView
+        android:id="@+id/textValidationAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textColor="#FF0000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/address" />
 
     <EditText
         android:id="@+id/passwordText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/password"
         android:inputType="textPassword"
         android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="@+id/usernameText"
+        app:layout_constraintEnd_toEndOf="@+id/address"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/usernameText"
-        app:layout_constraintTop_toBottomOf="@+id/address"
-        android:autofillHints="" />
+        app:layout_constraintStart_toStartOf="@+id/address"
+        app:layout_constraintTop_toBottomOf="@+id/textValidationAddress" />
+
+    <TextView
+        android:id="@+id/textValidationPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textColor="#FF0000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordText" />
 
     <EditText
         android:id="@+id/passwordConfirmText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="@string/confirmPassword"
         android:inputType="textPassword"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="@+id/passwordText"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/passwordText"
-        app:layout_constraintTop_toBottomOf="@+id/passwordText" />
+        app:layout_constraintTop_toBottomOf="@+id/textValidationPassword" />
+
+    <TextView
+        android:id="@+id/textValidationConfirmPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textColor="#FF0000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordConfirmText" />
 
     <Spinner
         android:id="@+id/roleSpinner"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:entries="@array/role"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="@+id/passwordConfirmText"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/passwordConfirmText"
-        app:layout_constraintTop_toBottomOf="@+id/passwordConfirmText" />
+        app:layout_constraintTop_toBottomOf="@+id/textValidationConfirmPassword" />
+
+    <TextView
+        android:id="@+id/textValidationRoleSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textColor="#FF0000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/roleSpinner" />
 
     <Button
         android:id="@+id/registerButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="5dp"
         android:backgroundTint="#DA9630"
         android:text="@string/registerBtn"
         app:layout_constraintEnd_toEndOf="@+id/roleSpinner"
         app:layout_constraintStart_toStartOf="@+id/roleSpinner"
-        app:layout_constraintTop_toBottomOf="@+id/roleSpinner" />
+        app:layout_constraintTop_toBottomOf="@+id/textValidationRoleSpinner" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

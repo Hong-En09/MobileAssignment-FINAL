@@ -1,10 +1,25 @@
 package com.example.mobileassignment.ui.Profile
 
+import android.app.ProgressDialog
+import android.content.Context
+import android.content.Intent
+import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Bundle
-import android.view.View
+import android.util.Log
+import android.widget.EditText
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.example.mobileassignment.Entity.User
 import com.example.mobileassignment.R
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.firebase.database.*
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_profile.*
+import java.util.*
 
 class ProfileActivity : AppCompatActivity() {
 
@@ -14,14 +29,10 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
-        buttonBack.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(v: View?) {
-                onBackPressed()
-            }
-        })
 
-    }
-
+        buttonBack.setOnClickListener(){
+            finish()
+        }
 
         val sharedPreferences = getSharedPreferences("preferenceFile", Context.MODE_PRIVATE)
 
@@ -143,7 +154,7 @@ class ProfileActivity : AppCompatActivity() {
         var updatePhone = ""
         var updateAddress = ""
         var updateUrl = ""
-        editProfilePassword.setOnClickListener{
+        buttonChangeDetail.setOnClickListener{
             val builder = AlertDialog.Builder(this)
             val inflater = layoutInflater
             val dialogLayout = inflater.inflate(R.layout.edit_password_layout,null)

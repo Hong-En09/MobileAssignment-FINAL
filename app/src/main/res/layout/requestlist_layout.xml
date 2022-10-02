@@ -43,14 +43,14 @@
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toTopOf="@+id/imageViewProduct" />
 
-    <Button
-        android:id="@+id/buttonChoose"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="170dp"
-        android:text="@string/choose"
+    <ImageView
+        android:id="@+id/imageButtonChoose"
+        android:layout_width="50dp"
+        android:layout_height="44dp"
+        android:layout_marginEnd="32dp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewQuantity"
-        app:layout_constraintStart_toEndOf="@+id/imageViewProduct"
-        app:layout_constraintTop_toTopOf="@+id/textViewItem" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textViewItem"
+        app:srcCompat="@drawable/ic_baseline_arrow_circle_right_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

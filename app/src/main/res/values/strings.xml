@@ -28,6 +28,7 @@
     <string name="requestList">Customer Request List</string>
     <string name="profile">Profile</string>
     <string name="logout">Logout</string>
+    <string name="welcomeBack">Welcome Back</string>
 
     //Login/Register Label
     <string name="loginLbl">Login</string>
@@ -48,6 +49,7 @@
         <item>Farmer</item>
         <item>Client</item>
     </string-array>
+    <string name="required">Required</string>
 
     //testing purpose
     <string name="thisIsProductList">This is a product list.</string>
@@ -101,4 +103,5 @@
 
     //Profile
     <string name="back">Back</string>
+    <string name="changDetail">Change Detail</string>
 </resources>

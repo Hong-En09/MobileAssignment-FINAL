@@ -17,6 +17,48 @@
       app:layout_constraintTop_toTopOf="parent"
       tools:srcCompat="@tools:sample/avatars" />
 
+  <View
+      android:layout_width="2dp"
+      android:layout_height="182dp"
+      android:background="#c0c0c0"
+      app:layout_constraintBottom_toBottomOf="@+id/profilePic"
+      app:layout_constraintEnd_toStartOf="@+id/profilePic"
+      app:layout_constraintTop_toTopOf="@+id/profilePic" />
+
+  <View
+      android:id="@+id/view"
+      android:layout_width="2dp"
+      android:layout_height="182dp"
+      android:background="#c0c0c0"
+      app:layout_constraintBottom_toBottomOf="@+id/profilePic"
+      app:layout_constraintStart_toEndOf="@+id/profilePic"
+      app:layout_constraintTop_toTopOf="@+id/profilePic" />
+
+  <View
+      android:layout_width="match_parent"
+      android:layout_height="2dp"
+      android:layout_marginTop="8dp"
+      android:background="#c0c0c0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/profilePic" />
+
+  <View
+      android:layout_width="0dp"
+      android:layout_height="2dp"
+      android:background="#c0c0c0"
+      app:layout_constraintEnd_toEndOf="@+id/profilePic"
+      app:layout_constraintStart_toStartOf="@+id/profilePic"
+      app:layout_constraintTop_toTopOf="@+id/profilePic" />
+
+  <View
+      android:id="@+id/view2"
+      android:layout_width="185dp"
+      android:layout_height="2dp"
+      android:background="#c0c0c0"
+      app:layout_constraintEnd_toEndOf="@+id/profilePic"
+      app:layout_constraintStart_toStartOf="@+id/profilePic"
+      app:layout_constraintTop_toBottomOf="@+id/profilePic" />
+
   <TextView
       android:id="@+id/textProfileUsername"
       android:layout_width="wrap_content"
@@ -34,7 +76,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="24dp"
-      android:layout_marginTop="24dp"
+      android:layout_marginTop="16dp"
       android:text="@string/email"
       android:textColor="#000000"
       android:textSize="16sp"
@@ -64,7 +106,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="24dp"
-      android:layout_marginTop="24dp"
+      android:layout_marginTop="16dp"
       android:text="@string/phone"
       android:textColor="#000000"
       android:textSize="16sp"
@@ -85,7 +127,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="24dp"
-      android:layout_marginTop="24dp"
+      android:layout_marginTop="16dp"
       android:text="@string/registerAddress"
       android:textColor="#000000"
       android:textSize="16sp"
@@ -106,7 +148,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="24dp"
-      android:layout_marginTop="24dp"
+      android:layout_marginTop="16dp"
       android:text="@string/password"
       android:textColor="#000000"
       android:textSize="16sp"
@@ -126,18 +168,30 @@
       android:id="@+id/upload"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
       android:text="upload"
-      tools:layout_editor_absoluteX="159dp"
-      tools:layout_editor_absoluteY="634dp" />
+      app:layout_constraintBottom_toBottomOf="@+id/buttonChangeDetail"
+      app:layout_constraintStart_toEndOf="@+id/buttonChangeDetail"
+      app:layout_constraintTop_toTopOf="@+id/buttonChangeDetail" />
 
   <Button
       android:id="@+id/buttonBack"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginTop="3dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="8dp"
       android:text="@string/back"
-      app:layout_constraintEnd_toEndOf="@+id/editProfilePassword"
-      app:layout_constraintStart_toStartOf="@+id/editProfilePassword"
+      app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/editProfilePassword" />
+
+  <Button
+      android:id="@+id/buttonChangeDetail"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:text="@string/changDetail"
+      app:layout_constraintBottom_toBottomOf="@+id/buttonBack"
+      app:layout_constraintStart_toEndOf="@+id/buttonBack"
+      app:layout_constraintTop_toTopOf="@+id/buttonBack" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

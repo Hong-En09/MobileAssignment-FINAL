@@ -3,6 +3,7 @@ package com.example.mobileassignment.ui.CustomerFolder
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
+import android.widget.Switch
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.ui.AppBarConfiguration
@@ -37,11 +38,23 @@ class AddNewRequestActivity : AppCompatActivity() {
         val sharedPreferences =
             getSharedPreferences("preferenceFile", Context.MODE_PRIVATE)
 
-
+        val gram = findViewById<Switch>(R.id.byGramButton)
+        gram?.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked){
+                quantityTextView.text = "Gram"
+            }else{
+                quantityTextView.text = "Quantity"
+            }
+        }
 
         confirmRequestButton.setOnClickListener {
             val product = modalItems.name.toString()
-            val quantity = quantityValue.text.toString()
+            //var quantity = quantityValue.text.toString()
+            var quantity = if(gram.isChecked){
+                quantityValue.text.toString() + "g"
+            }else{
+                quantityValue.text.toString()
+            }
             val price = priceValue.text.toString()
             val username = sharedPreferences?.getString("username", null).toString()
             val address = sharedPreferences?.getString("address", null).toString()
@@ -51,8 +64,6 @@ class AddNewRequestActivity : AppCompatActivity() {
             val storageRef = FirebaseStorage.getInstance().reference
 
             val photoURL = storageRef.child(product + ".png").toString()
-
-
 
 
 

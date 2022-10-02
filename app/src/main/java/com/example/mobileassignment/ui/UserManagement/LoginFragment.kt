@@ -89,6 +89,8 @@ class LoginFragment: Fragment() {
                         }
 
 
+                    }else{
+                        Toast.makeText(context, "Invalid Username or Password", Toast.LENGTH_SHORT).show()
                     }
                 }
             }

@@ -1,6 +1,5 @@
 package com.example.mobileassignment.ui.FarmerFolder
 
-import android.R.attr.defaultValue
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.os.Bundle
@@ -17,7 +16,6 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.fragment_contract_detail.*
-import kotlinx.android.synthetic.main.nav_header_farmer.view.*
 
 
 class ContractDetailFragment: Fragment() {
@@ -79,7 +77,7 @@ class ContractDetailFragment: Fragment() {
         photoRef.getBytes(ONE_MEGABYTE)
             .addOnSuccessListener { bytes ->
                 val bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
-                contractImage.imageView.setImageBitmap(bmp)
+                contractImage.setImageBitmap(bmp)
             }.addOnFailureListener(OnFailureListener {
 
             })
