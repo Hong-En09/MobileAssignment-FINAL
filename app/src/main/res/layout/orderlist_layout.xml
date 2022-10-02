@@ -92,7 +92,7 @@
         android:id="@+id/usernameAccepted"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewName"
         app:layout_constraintStart_toEndOf="@+id/textViewName"
         app:layout_constraintTop_toTopOf="@+id/textViewName" />
@@ -103,9 +103,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewAddress"
-        app:layout_constraintEnd_toEndOf="@+id/usernameAccepted"
-        app:layout_constraintStart_toStartOf="@+id/usernameAccepted"
-        app:layout_constraintTop_toTopOf="@+id/textViewAddress" />
+        app:layout_constraintStart_toEndOf="@+id/textViewAddress"
+        app:layout_constraintTop_toTopOf="@+id/textViewAddress"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/priceAccepted"
@@ -113,9 +113,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewPhoneNumber"
-        app:layout_constraintEnd_toEndOf="@+id/productAccepted"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/productAccepted"
+        app:layout_constraintStart_toEndOf="@+id/textViewPhoneNumber"
         app:layout_constraintTop_toTopOf="@+id/textViewPhoneNumber"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -123,10 +121,9 @@
         android:id="@+id/quantityAccepted"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewStatus"
-        app:layout_constraintEnd_toEndOf="@+id/priceAccepted"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/priceAccepted"
+        app:layout_constraintStart_toEndOf="@+id/textViewStatus"
         app:layout_constraintTop_toTopOf="@+id/textViewStatus"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -134,10 +131,9 @@
         android:id="@+id/addressAccepted"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewAddressAccepted"
-        app:layout_constraintEnd_toEndOf="@+id/quantityAccepted"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/quantityAccepted"
+        app:layout_constraintStart_toEndOf="@+id/textViewAddressAccepted"
         app:layout_constraintTop_toTopOf="@+id/textViewAddressAccepted"
         app:layout_constraintVertical_bias="0.0" />
 

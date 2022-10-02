@@ -18,10 +18,6 @@
         <entry key="..\:/Users/RyuKo/StudioProjects/MobileAssignment-FINAL/app/src/main/res/layout/activity_customer.xml" value="0.1265625" />
         <entry key="..\:/Users/RyuKo/StudioProjects/MobileAssignment-FINAL/app/src/main/res/layout/content_farmer.xml" value="0.1265625" />
         <entry key="..\:/Users/RyuKo/StudioProjects/MobileAssignment-FINAL/app/src/main/res/layout/fragment_accepted_requestlist.xml" value="0.1265625" />
-        <entry key="..\:/Users/RyuKo/StudioProjects/MobileAssignment-FINAL/app/src/main/res/layout/edit_email_layout.xml" value="0.205078125" />
-        <entry key="..\:/Users/RyuKo/StudioProjects/MobileAssignment-FINAL/app/src/main/res/layout/edit_password_layout.xml" value="0.2734375" />
-        <entry key="..\:/Users/RyuKo/StudioProjects/MobileAssignment-FINAL/app/src/main/res/layout/edit_phone_layout.xml" value="0.2734375" />
-        <entry key="..\:/Users/RyuKo/StudioProjects/MobileAssignment-FINAL/app/src/main/res/layout/fragment_accepted_requestlist.xml" value="0.1409921671018277" />
         <entry key="..\:/Users/RyuKo/StudioProjects/MobileAssignment-FINAL/app/src/main/res/layout/fragment_add_newrequest.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/RyuKo/StudioProjects/MobileAssignment-FINAL/app/src/main/res/layout/fragment_contract_detail.xml" value="0.1265625" />
         <entry key="..\:/Users/RyuKo/StudioProjects/MobileAssignment-FINAL/app/src/main/res/layout/fragment_customer_orderlist.xml" value="0.1265625" />
@@ -59,7 +55,7 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/MobileAssignment - Copy/app/src/main/res/layout/fragment_contract_detail.xml" value="0.358695652173913" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MobileAssignment - Copy/app/src/main/res/layout/fragment_contractdetail.xml" value="0.358695652173913" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MobileAssignment - Copy/app/src/main/res/layout/fragment_customer_orderlist.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MobileAssignment - Copy/app/src/main/res/layout/fragment_farmer_homepage.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MobileAssignment - Copy/app/src/main/res/layout/fragment_farmer_homepage.xml" value="0.25" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MobileAssignment - Copy/app/src/main/res/layout/fragment_login.xml" value="0.33" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MobileAssignment - Copy/app/src/main/res/layout/fragment_productlist.xml" value="0.33" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MobileAssignment - Copy/app/src/main/res/layout/fragment_register.xml" value="0.358695652173913" />

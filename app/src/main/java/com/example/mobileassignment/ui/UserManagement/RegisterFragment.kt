@@ -14,8 +14,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.mobileassignment.Entity.User
 import com.example.mobileassignment.R
 import com.example.mobileassignment.databinding.FragmentRegisterBinding
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
@@ -77,6 +76,25 @@ class RegisterFragment: Fragment() {
                 binding.textValidationUsername.isVisible = false
             }
 
+
+            val databaseRef = FirebaseDatabase.getInstance().reference.child("user")
+                .orderByChild("username").equalTo(username)
+
+
+            databaseRef.addValueEventListener(object: ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+
+                    if(username.equals(databaseRef)){
+                        errorMsg = binding.textValidationUsername.setText("Username Exist")
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+
+            })
+
             if(phone.isEmpty()){
                 errorMsg =  binding.textValidationPhoneNumber.setText("Required")
             }else{
@@ -118,21 +136,15 @@ class RegisterFragment: Fragment() {
             }
 
             if(errorMsg == null) {
-
-                val newUser = User(username, password, role, email, phone, address, photoURL)
-                userViewModel.insert(newUser)
-                userViewModel.userList.observe(viewLifecycleOwner) {
-                    userViewModel.syncUser()
-                    Toast.makeText(context, "Profile Saved", Toast.LENGTH_SHORT).show()
-                    findNavController().navigate(R.id.nav_login)
-                }
-            }
                 val newUser = User(username, password, role, email,phone,address,photoURL)
 
-            val database: DatabaseReference = Firebase.database.getReference("user")
-            database.child(newUser.username).setValue(newUser)
+                val database: DatabaseReference = Firebase.database.getReference("user")
+                database.child(newUser.username).setValue(newUser)
                 Toast.makeText(context, "Profile Saved", Toast.LENGTH_SHORT).show()
                 findNavController().navigate(R.id.nav_login)
+
+            }
+
                 //Return back to the First Fragment
                 //val navController = activity?.findNavController(R.id.nav_host_fragment_content_main)
                 //navController?.navigateUp()

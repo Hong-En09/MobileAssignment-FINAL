@@ -6,7 +6,6 @@ import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -27,7 +26,7 @@ class RequestListAdapter : RecyclerView.Adapter<RequestListAdapter.ViewHolder>()
         val imageItem: ImageView = view.findViewById(R.id.imageViewProduct)
         val textItem: TextView = view.findViewById(R.id.textViewItem)
         val textQuantity: TextView = view.findViewById(R.id.textViewQuantity)
-        val imageButtonChoose: Button = view.findViewById(R.id.imageButtonChoose)
+        val imageButtonChoose: ImageView = view.findViewById(R.id.imageButtonChoose)
         val preferences = view.context.getSharedPreferences("preferenceFile", Context.MODE_PRIVATE)!!
 
 

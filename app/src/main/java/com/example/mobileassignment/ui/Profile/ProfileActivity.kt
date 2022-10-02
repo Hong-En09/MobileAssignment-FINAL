@@ -10,15 +10,8 @@ import android.util.Log
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import android.util.Log
-import android.view.View
-import android.widget.EditText
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
-import androidx.core.view.isVisible
-import com.example.mobileassignment.Entity.User
 import androidx.appcompat.app.AppCompatActivity
-import com.example.mobileassignment.Entity.User
+import androidx.core.view.isVisible
 import com.example.mobileassignment.R
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.firebase.database.*

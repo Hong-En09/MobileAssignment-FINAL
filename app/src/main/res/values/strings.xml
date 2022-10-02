@@ -86,15 +86,15 @@
     <string name="addNewRequest">Add Request</string>
 
     //Accepted Request List
-    <string name="acceptedRequestList">Accepted Request List</string>
+    <string name="acceptedRequestList">Request List</string>
     //Name,PhoneNumber,Status string take from Customer Order List
     <string name="acceptedProduct">Product:</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
     <string name="detail">Detail</string>
     <string name="title_activity_farmer">FarmerActivity</string>
-    <string name="quantityTitleText">Quantity</string>
-    <string name="priceTitleView">Price (RM)</string>
+    <string name="quantityTitleText">Quantity:</string>
+    <string name="priceTitleView">Price (RM):</string>
     <string name="byGramText" />
     <string name="byGram">By Gram</string>
     <string name="confirmTextView">Confirm</string>

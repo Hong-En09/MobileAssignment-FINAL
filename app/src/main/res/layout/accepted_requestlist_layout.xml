@@ -63,7 +63,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="aaa"
         app:layout_constraintBottom_toBottomOf="@+id/textAcceptedName"
         app:layout_constraintStart_toEndOf="@+id/textAcceptedName"
         app:layout_constraintTop_toTopOf="@+id/textAcceptedName" />
@@ -73,7 +72,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="carrot"
         app:layout_constraintBottom_toBottomOf="@+id/textAcceptedProduct"
         app:layout_constraintStart_toEndOf="@+id/textAcceptedProduct"
         app:layout_constraintTop_toTopOf="@+id/textAcceptedProduct" />
@@ -83,7 +81,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="0123456789"
         app:layout_constraintBottom_toBottomOf="@+id/textAcceptedPhoneNum"
         app:layout_constraintStart_toEndOf="@+id/textAcceptedPhoneNum"
         app:layout_constraintTop_toTopOf="@+id/textAcceptedPhoneNum" />
@@ -93,7 +90,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="0123456789"
         app:layout_constraintBottom_toBottomOf="@+id/textAcceptedQuantity"
         app:layout_constraintStart_toEndOf="@+id/textAcceptedQuantity"
         app:layout_constraintTop_toTopOf="@+id/textAcceptedQuantity" />
