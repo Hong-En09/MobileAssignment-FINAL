@@ -2,6 +2,8 @@ package com.example.mobileassignment.ui.ProductList
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,7 +17,14 @@ import com.example.mobileassignment.Entity.ProductList
 import com.example.mobileassignment.R
 import com.example.mobileassignment.databinding.FragmentProductlistBinding
 import com.example.mobileassignment.ui.CustomerFolder.AddNewRequestActivity
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.fragment_productlist.*
+import java.io.ByteArrayOutputStream
 
 
 class ProductListFragment: Fragment() {
@@ -78,12 +87,45 @@ class ProductListFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         modalList.clear()
-        for(i in names.indices){
-            modalList.add(ProductList(names[i],images[i]))
-        }
-        var customAdapter = CustomAdapter(modalList, requireContext())
+        val databaseRef = FirebaseDatabase.getInstance().reference.child("product")
+        databaseRef.addValueEventListener(object: ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for(ds in snapshot.children){
+                    val names = ds.child("name").getValue(String::class.java).toString()
+                    val url = ds.child("url").getValue(String::class.java).toString()
+                    if(url != ""){
+                        val storageRef = FirebaseStorage.getInstance().reference
 
-        gridView.adapter = customAdapter
+                        val photoRef = storageRef.child("images/"+url)
+                        val ONE_MEGABYTE = (1920 * 1080).toLong()
+                        photoRef.getBytes(ONE_MEGABYTE)
+                            .addOnSuccessListener { bytes ->
+                                val bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
+                                modalList.add(ProductList(names,bmp))
+                                var customAdapter = CustomAdapter(modalList, requireContext())
+                                gridView.adapter = customAdapter
+
+                            }.addOnFailureListener(OnFailureListener {
+
+                            })
+
+                    }
+
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
+
+        for(i in names.indices){
+
+        }
+
+
+
 
         /*gridView.setOnItemClickListener{ adapterView, view, i, l ->
             var intent = Intent(requireContext(), AddNewRequestFragment::class.java)
@@ -101,7 +143,13 @@ class ProductListFragment: Fragment() {
 
 
             var intent = Intent (view.context, AddNewRequestActivity::class.java)
-            intent.putExtra("data", modalList[i])
+            val intentString : String? = modalList[i].name
+            intent.putExtra("dataString", intentString)
+            val intentBitMap : Bitmap? = modalList[i].image
+            val stream = ByteArrayOutputStream()
+            intentBitMap!!.compress(Bitmap.CompressFormat.PNG, 100, stream)
+            val byteArray: ByteArray = stream.toByteArray()
+            intent.putExtra("dataBitmap", byteArray)
             startActivity(intent)
         }
 
@@ -123,7 +171,7 @@ class ProductListFragment: Fragment() {
             var imageView = view?.findViewById<ImageView>(R.id.imageViewProduct);
 
             tvImageName?.text = itemProduct[position].name;
-            imageView?.setImageResource(itemProduct[position].image!!)
+            imageView?.setImageBitmap(itemProduct[position].image)
 
             return view!!;
         }
