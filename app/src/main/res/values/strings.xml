@@ -108,4 +108,5 @@
     <string name="adminPageTitle">Admin Page</string>
     <string name="adminProductPage">Product Name</string>
     <string name="uploadAdmin">Upload</string>
+    <string name="dealer">Dealer:</string>
 </resources>
