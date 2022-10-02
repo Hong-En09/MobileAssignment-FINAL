@@ -30,21 +30,38 @@ class ProductListFragment: Fragment() {
         "Carrot",
         "Broccoli",
         "Cucumber",
+        "Beetroot",
+        "Chili",
+        "Corn",
+        "Eggplant",
+        "Mushroom",
+        "Mutton",
+        "Onion",
+        "Pumpkin",
         "Potato",
         "Tomato",
         "Egg",
-        "Salmon"
+        "Salmon",
+        "Chicken"
     )
 
     var images = intArrayOf(
         R.drawable.carrot,
         R.drawable.broccoli,
         R.drawable.cucumber,
+        R.drawable.beetroot,
+        R.drawable.chili,
+        R.drawable.corn,
+        R.drawable.eggplant,
+        R.drawable.mushroom,
+        R.drawable.mutton,
+        R.drawable.onion,
+        R.drawable.pumpkin,
         R.drawable.potato,
         R.drawable.tomato,
         R.drawable.egg,
-        R.drawable.salmon
-
+        R.drawable.salmon,
+        R.drawable.chicken
     )
 
     override fun onCreateView(
