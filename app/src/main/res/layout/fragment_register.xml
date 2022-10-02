@@ -58,6 +58,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailText" />
 
+    <TextView
+        android:id="@+id/textValidationUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textColor="#FF0000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usernameText" />
+
     <EditText
         android:id="@+id/usernameText"
         android:layout_width="0dp"
@@ -73,19 +82,11 @@
         app:layout_constraintTop_toBottomOf="@+id/textValidationEmail" />
 
 
-    <TextView
-        android:id="@+id/textValidationUsername"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:textColor="#FF0000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usernameText" />
-
     <EditText
         android:id="@+id/registerPhoneNumber"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/phone"
@@ -94,7 +95,7 @@
         app:layout_constraintEnd_toEndOf="@+id/usernameText"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/usernameText"
-        app:layout_constraintTop_toBottomOf="@+id/textValidationUsername" />
+        app:layout_constraintTop_toBottomOf="@+id/usernameText" />
 
     <TextView
         android:id="@+id/textValidationPhoneNumber"
