@@ -63,13 +63,20 @@ class LoginFragment: Fragment() {
 
                     if(password == pass){
 
-                        val email = ds.child("email").getValue(String::class.java)
-                        val role = ds.child("role").getValue(String::class.java)
+                        val role = ds.child("role").getValue(String::class.java).toString()
+                        val email = ds.child("email").getValue(String::class.java).toString()
+                        val phone = ds.child("phoneNum").getValue(String::class.java).toString()
+                        val address = ds.child("address").getValue(String::class.java).toString()
+                        val url = ds.child("photoUrl").getValue(String::class.java).toString()
                         val sharedPreferences = activity?.getSharedPreferences("preferenceFile", Context.MODE_PRIVATE)
                         with (sharedPreferences!!.edit()) {
                             putString("username", username)
                             putString("email", email)
                             putString("role", role)
+                            putString("phone", phone)
+                            putString("address", address)
+                            putString("userURL", url)
+                            putString("pass", pass)
                             apply()
                         }
 
@@ -92,21 +99,6 @@ class LoginFragment: Fragment() {
 
         })
 
-        /*database.child("username").get().addOnSuccessListener {
-            if(it.exists()){
-                for(children in it.children){
-                    if
-                }
-                val accPassword = it.child("password").value
-                if(accPassword == binding.editTextTextPassword.text.toString()){
-                    findNavController().navigate(R.id.nav_farmerHomepage)
-                }
-            }else{
-                Toast.makeText(context, "Username or password wrong.", Toast.LENGTH_SHORT).show()
-            }
-        }.addOnFailureListener{
-            Toast.makeText(context, "Account not exist.", Toast.LENGTH_SHORT).show()
-        }*/
     }
 
     override fun onResume() {

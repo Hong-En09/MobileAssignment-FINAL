@@ -8,7 +8,7 @@
     tools:context=".ui.Profile.ProfileActivity">
 
   <ImageView
-      android:id="@+id/imageView4"
+      android:id="@+id/profilePic"
       android:layout_width="181dp"
       android:layout_height="181dp"
       android:layout_marginTop="60dp"
@@ -27,7 +27,7 @@
       android:textColor="#000000"
       android:textSize="16sp"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+      app:layout_constraintTop_toBottomOf="@+id/profilePic" />
 
   <TextView
       android:id="@+id/textProfileEmail"
@@ -71,17 +71,12 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/fixedProfileEmail" />
 
-  <EditText
+  <TextView
       android:id="@+id/editProfilePhoneNumber"
-      android:layout_width="0dp"
+      android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="24dp"
-      android:layout_marginEnd="24dp"
-      android:ems="10"
-      android:hint="@string/phone"
-      android:inputType="number"
-      android:minHeight="48dp"
-      app:layout_constraintEnd_toEndOf="parent"
+      android:textSize="20sp"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/textProfilePhoneNumber" />
 
@@ -97,17 +92,12 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/editProfilePhoneNumber" />
 
-  <EditText
+  <TextView
       android:id="@+id/editProfileAddress"
-      android:layout_width="0dp"
+      android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="24dp"
-      android:layout_marginEnd="24dp"
-      android:ems="10"
-      android:hint="@string/registerAddress"
-      android:inputType="textPersonName"
-      android:minHeight="48dp"
-      app:layout_constraintEnd_toEndOf="parent"
+      android:textSize="20sp"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/textProfileAddress" />
 
@@ -123,19 +113,22 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/editProfileAddress" />
 
-  <EditText
+  <TextView
       android:id="@+id/editProfilePassword"
-      android:layout_width="0dp"
+      android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="24dp"
-      android:layout_marginEnd="24dp"
-      android:ems="10"
-      android:hint="@string/password"
-      android:inputType="textPassword"
-      android:minHeight="48dp"
-      app:layout_constraintEnd_toEndOf="parent"
+      android:textSize="20sp"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/textProfilePassword" />
+
+  <Button
+      android:id="@+id/upload"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="upload"
+      tools:layout_editor_absoluteX="159dp"
+      tools:layout_editor_absoluteY="634dp" />
 
   <Button
       android:id="@+id/buttonBack"

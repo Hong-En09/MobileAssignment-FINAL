@@ -3,11 +3,15 @@ package com.example.mobileassignment.ui.FarmerFolder
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mobileassignment.Entity.AcceptedRequestList
 import com.example.mobileassignment.Entity.CustomerOrderList
 import com.example.mobileassignment.R
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 
 class CustomerOrderListAdapter : RecyclerView.Adapter<CustomerOrderListAdapter.ViewHolder>() {
 
@@ -21,6 +25,7 @@ class CustomerOrderListAdapter : RecyclerView.Adapter<CustomerOrderListAdapter.V
         val textQuantity: TextView = view.findViewById(R.id.quantityAccepted)
         val textStatus: TextView = view.findViewById(R.id.statusAccepted)
         val textAddress: TextView = view.findViewById(R.id.addressAccepted)
+        val updateButton: Button = view.findViewById(R.id.buttonArrived)
 
         init {
             view.setOnClickListener{
@@ -47,6 +52,14 @@ class CustomerOrderListAdapter : RecyclerView.Adapter<CustomerOrderListAdapter.V
         holder.textQuantity.text = orderList.quantity
         holder.textPrice.text = orderList.price
         holder.textStatus.text = orderList.status
+        holder.textAddress.text = orderList.address
+        val status = "Arrived"
+        holder.updateButton.setOnClickListener{
+            val database: DatabaseReference = Firebase.database.getReference("requestList")
+
+
+            database.child(orderList.uniqueID).child("status").setValue(status)
+        }
 
 
     }

@@ -44,6 +44,7 @@ class AddNewRequestActivity : AppCompatActivity() {
             val quantity = quantityValue.text.toString()
             val price = priceValue.text.toString()
             val username = sharedPreferences?.getString("username", null).toString()
+            val address = sharedPreferences?.getString("address", null).toString()
             val uniqueID = UUID.randomUUID().toString()
             val status = "Pending"
             val dealer = ""
@@ -56,7 +57,7 @@ class AddNewRequestActivity : AppCompatActivity() {
 
 
             if (quantity.isNotEmpty() && price.isNotEmpty()) {
-                val newRequest = AcceptedRequestList(uniqueID, username, product, quantity, price, status, photoURL, dealer)
+                val newRequest = AcceptedRequestList(uniqueID, username, product, quantity, price, status, photoURL, dealer,address)
                 val database: DatabaseReference = Firebase.database.getReference("requestList")
 
 

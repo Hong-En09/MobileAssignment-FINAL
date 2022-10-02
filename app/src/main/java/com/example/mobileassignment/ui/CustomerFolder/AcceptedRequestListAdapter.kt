@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mobileassignment.Entity.AcceptedRequestList
@@ -13,6 +14,8 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import kotlinx.android.synthetic.main.accepted_requestlist_layout.view.*
+import kotlinx.android.synthetic.main.nav_header_farmer.view.*
 
 class AcceptedRequestListAdapter: RecyclerView.Adapter<AcceptedRequestListAdapter.ViewHolder>() {
 
@@ -28,6 +31,7 @@ class AcceptedRequestListAdapter: RecyclerView.Adapter<AcceptedRequestListAdapte
         val textPrice: TextView = view.findViewById(R.id.acceptedPrice)
         val textQuantity: TextView = view.findViewById(R.id.acceptedQuantity)
         val textStatus: TextView = view.findViewById(R.id.acceptedStatus)
+        val deleteButton:ImageView = view.findViewById(R.id.imageViewDeleteButton)
 
         init {
             view.setOnClickListener{
@@ -57,9 +61,23 @@ class AcceptedRequestListAdapter: RecyclerView.Adapter<AcceptedRequestListAdapte
         holder.textQuantity.text = orderList.quantity
         holder.textPrice.text = orderList.price
         holder.textStatus.text = orderList.status
+        holder.deleteButton.setOnClickListener{
+            val databaseRef = FirebaseDatabase.getInstance().reference.child("requestList").orderByChild("uniqueID")
+                .equalTo(orderList.uniqueID)
+            databaseRef.addValueEventListener(object: ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    for (ds in snapshot.getChildren()) {
+                        ds.ref.removeValue()
+                    }
+                }
 
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
 
+            })
 
+        }
     }
 
     override fun getItemCount(): Int {
