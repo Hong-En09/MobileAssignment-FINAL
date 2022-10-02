@@ -1,14 +1,15 @@
 package com.example.mobileassignment.ui.CustomerFolder
 
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.util.Log
+import android.os.Parcelable
 import android.widget.Switch
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.ui.AppBarConfiguration
 import com.example.mobileassignment.Entity.AcceptedRequestList
-import com.example.mobileassignment.Entity.ProductList
 import com.example.mobileassignment.R
 import com.example.mobileassignment.databinding.ActivityAddNewrequestBinding
 import com.google.firebase.database.DatabaseReference
@@ -27,14 +28,15 @@ class AddNewRequestActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_newrequest)
+        val intent = intent
+        val byteArray = getIntent().getByteArrayExtra("dataBitmap")
+        val bitmapPhoto = BitmapFactory.decodeByteArray(byteArray, 0, byteArray!!.size)
+        val stringName = intent.extras!!.getString("dataString")
 
 
-        var modalItems: ProductList = intent.getSerializableExtra("data") as ProductList
 
-        Log.e("name", modalItems.name.toString())
-
-        productName2.text = modalItems.name
-        viewImage2.setImageResource(modalItems.image!!)
+        productName2.text = stringName
+        viewImage2.setImageBitmap(bitmapPhoto)
         val sharedPreferences =
             getSharedPreferences("preferenceFile", Context.MODE_PRIVATE)
 
@@ -48,7 +50,7 @@ class AddNewRequestActivity : AppCompatActivity() {
         }
 
         confirmRequestButton.setOnClickListener {
-            val product = modalItems.name.toString()
+            val product = stringName.toString()
             //var quantity = quantityValue.text.toString()
             var quantity = if(gram.isChecked){
                 quantityValue.text.toString() + "g"
