@@ -35,43 +35,6 @@ class ProductListFragment: Fragment() {
     private val binding get() = _binding!!
 
     var modalList = ArrayList<ProductList>()
-    var names = arrayOf(
-        "Carrot",
-        "Broccoli",
-        "Cucumber",
-        "Beetroot",
-        "Chili",
-        "Corn",
-        "Eggplant",
-        "Mushroom",
-        "Mutton",
-        "Onion",
-        "Pumpkin",
-        "Potato",
-        "Tomato",
-        "Egg",
-        "Salmon",
-        "Chicken"
-    )
-
-    var images = intArrayOf(
-        R.drawable.carrot,
-        R.drawable.broccoli,
-        R.drawable.cucumber,
-        R.drawable.beetroot,
-        R.drawable.chili,
-        R.drawable.corn,
-        R.drawable.eggplant,
-        R.drawable.mushroom,
-        R.drawable.mutton,
-        R.drawable.onion,
-        R.drawable.pumpkin,
-        R.drawable.potato,
-        R.drawable.tomato,
-        R.drawable.egg,
-        R.drawable.salmon,
-        R.drawable.chicken
-    )
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -86,7 +49,9 @@ class ProductListFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //Prevent Duplicate
         modalList.clear()
+        //Call Firebase (root)
         val databaseRef = FirebaseDatabase.getInstance().reference.child("product")
         databaseRef.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -100,6 +65,7 @@ class ProductListFragment: Fragment() {
                         val ONE_MEGABYTE = (1920 * 1080).toLong()
                         photoRef.getBytes(ONE_MEGABYTE)
                             .addOnSuccessListener { bytes ->
+                                //convert into bitmap
                                 val bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
                                 modalList.add(ProductList(names,bmp))
                                 var customAdapter = CustomAdapter(modalList, requireContext())
@@ -120,32 +86,16 @@ class ProductListFragment: Fragment() {
 
         })
 
-        for(i in names.indices){
-
-        }
-
-
-
-
-        /*gridView.setOnItemClickListener{ adapterView, view, i, l ->
-            var intent = Intent(requireContext(), AddNewRequestFragment::class.java)
-            //intent.putExtra("data", modalList[i])
-            intent.putExtra("data", modalList[i])
-            startActivity(intent)
-        }*/
 
         gridView.setOnItemClickListener{ _, view, i, _ ->
-            //var modal = ProductList(modalList[i].name.toString(), modalList[i].image!!.toInt())
-            //var intent = Intent(requireContext(), AddNewRequestFragment::class.java)
-            //val bundle = Bundle()
-            //bundle.putSerializable("amount", modalList[i])
-            //view.findNavController().navigate(R.id.nav_addNewRequest, bundle)
 
-
+            //address
             var intent = Intent (view.context, AddNewRequestActivity::class.java)
+            //take array data
             val intentString : String? = modalList[i].name
             intent.putExtra("dataString", intentString)
             val intentBitMap : Bitmap? = modalList[i].image
+            //Convert from bitmap to byte
             val stream = ByteArrayOutputStream()
             intentBitMap!!.compress(Bitmap.CompressFormat.PNG, 100, stream)
             val byteArray: ByteArray = stream.toByteArray()
