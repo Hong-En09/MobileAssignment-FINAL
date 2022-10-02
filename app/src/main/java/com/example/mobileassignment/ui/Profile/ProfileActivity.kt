@@ -1,6 +1,12 @@
 package com.example.mobileassignment.ui.Profile
 
+import android.app.ProgressDialog
+import android.content.Context
+import android.content.Intent
+import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
@@ -9,7 +15,13 @@ import androidx.core.view.isVisible
 import com.example.mobileassignment.Entity.User
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mobileassignment.R
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.firebase.database.*
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_profile.*
+import java.util.*
 
 class ProfileActivity : AppCompatActivity() {
 
@@ -25,7 +37,7 @@ class ProfileActivity : AppCompatActivity() {
             }
         })
 
-    }
+
 
 
         val sharedPreferences = getSharedPreferences("preferenceFile", Context.MODE_PRIVATE)
@@ -67,7 +79,6 @@ class ProfileActivity : AppCompatActivity() {
                 editProfilePhoneNumber.text = phone
                 editProfileAddress.text = address
                 editProfilePassword.text = pass
-                showEditPassDialog(phone,address)
 
 
             }

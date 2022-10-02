@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mobileassignment.Entity.AcceptedRequestList
 import com.example.mobileassignment.Entity.CustomerOrderList
@@ -54,15 +55,14 @@ class CustomerOrderListAdapter : RecyclerView.Adapter<CustomerOrderListAdapter.V
         holder.textStatus.text = orderList.status
         holder.textAddress.text = orderList.address
         val status = "Arrived"
+        if(holder.textStatus.text != "Arrived"){
+            holder.updateButton.isVisible = true
+        }
         holder.updateButton.setOnClickListener{
             val databaseContract: DatabaseReference = Firebase.database.getReference("requestList")
-
-
             databaseContract.child(orderList.uniqueID).child("status").setValue(status)
             dataSet.clear()
         }
-
-
     }
 
     override fun getItemCount(): Int {
