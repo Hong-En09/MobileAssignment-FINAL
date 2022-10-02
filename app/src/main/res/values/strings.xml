@@ -98,5 +98,8 @@
     <string name="confirmTextView">Confirm</string>
     <string name="title_activity_product">ProductActivity</string>
     <string name="title_activity_customer">CustomerActivity</string>
+
+    //Profile
+    <string name="back">Back</string>
     <string name="guide1"># Left it blank will not update</string>
 </resources>
