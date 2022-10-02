@@ -46,6 +46,16 @@
         android:text="@string/status"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textAcceptedDealer" />
+
+    <TextView
+        android:id="@+id/textAcceptedDealer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/dealer"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textAcceptedQuantity" />
 
     <TextView
@@ -114,5 +124,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textAcceptedName"
         app:srcCompat="@drawable/ic_baseline_delete_24" />
+
+    <TextView
+        android:id="@+id/acceptedDealer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textAcceptedDealer"
+        app:layout_constraintStart_toEndOf="@+id/textAcceptedDealer"
+        app:layout_constraintTop_toTopOf="@+id/textAcceptedDealer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

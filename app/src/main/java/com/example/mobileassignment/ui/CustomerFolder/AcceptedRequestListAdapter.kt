@@ -14,8 +14,6 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import kotlinx.android.synthetic.main.accepted_requestlist_layout.view.*
-import kotlinx.android.synthetic.main.nav_header_farmer.view.*
 
 class AcceptedRequestListAdapter: RecyclerView.Adapter<AcceptedRequestListAdapter.ViewHolder>() {
 
@@ -30,6 +28,7 @@ class AcceptedRequestListAdapter: RecyclerView.Adapter<AcceptedRequestListAdapte
         val textProduct: TextView = view.findViewById(R.id.acceptedProduct)
         val textPrice: TextView = view.findViewById(R.id.acceptedPrice)
         val textQuantity: TextView = view.findViewById(R.id.acceptedQuantity)
+        val textDealer: TextView = view.findViewById(R.id.acceptedDealer)
         val textStatus: TextView = view.findViewById(R.id.acceptedStatus)
         val deleteButton:ImageView = view.findViewById(R.id.imageViewDeleteButton)
 
@@ -61,6 +60,7 @@ class AcceptedRequestListAdapter: RecyclerView.Adapter<AcceptedRequestListAdapte
         holder.textProduct.text = orderList.product
         holder.textQuantity.text = orderList.quantity
         holder.textPrice.text = orderList.price
+        holder.textDealer.text = orderList.dealer
         holder.textStatus.text = orderList.status
         if(holder.textStatus.text == "Pending"){
             holder.deleteButton.isVisible = true

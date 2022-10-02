@@ -105,4 +105,5 @@
     <string name="back">Back</string>
     <string name="changDetail">Change Detail</string>
     <string name="guide1"># Left it blank will not update</string>
+    <string name="dealer">Dealer:</string>
 </resources>
