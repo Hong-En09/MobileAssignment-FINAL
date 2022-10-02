@@ -42,6 +42,7 @@ class ContractDetailActivity : AppCompatActivity() {
         var quantity = ""
         var price = ""
         var uniqueID = ""
+        var address = ""
         var status = "Processing"
         var dealer = sharedPreferences!!.getString("username", null).toString()
         var databaseRef = FirebaseDatabase.getInstance().reference.child("requestList")
@@ -55,6 +56,7 @@ class ContractDetailActivity : AppCompatActivity() {
                     quantity = ds.child("quantity").getValue(String::class.java).toString()
                     price = ds.child("price").getValue(String::class.java).toString()
                     uniqueID = ds.child("uniqueID").getValue(String::class.java).toString()
+                    address = ds.child("address").getValue(String::class.java).toString()
                     //val location = ds.child("location").getValue(String::class.java)
                 }
                 val storageRef = FirebaseStorage.getInstance().reference
@@ -99,9 +101,9 @@ class ContractDetailActivity : AppCompatActivity() {
                         quantity = ds.child("quantity").getValue(String::class.java).toString()
                         price = ds.child("price").getValue(String::class.java).toString()
                         uniqueID = ds.child("uniqueID").getValue(String::class.java).toString()
-                        //val location = ds.child("location").getValue(String::class.java)
+                        address = ds.child("address").getValue(String::class.java).toString()
                     }
-                    val newRequest = AcceptedRequestList(uniqueID, username, product, quantity, price, status, photoURL, dealer)
+                    val newRequest = AcceptedRequestList(uniqueID, username, product, quantity, price, status, photoURL, dealer,address)
 
                     val database: DatabaseReference = Firebase.database.getReference("requestList")
 

@@ -50,7 +50,11 @@ class RegisterFragment: Fragment() {
                 val username = binding.usernameText.text.toString()
                 val password = binding.passwordText.text.toString()
                 val role = binding.roleSpinner.selectedItem.toString()
-                val newUser = User(username, password, role, email)
+            val phone = binding.registerPhoneNumber.text.toString()
+            val address = binding.address.text.toString()
+            val photoURL = ""
+
+                val newUser = User(username, password, role, email,phone,address,photoURL)
 
 
                 userViewModel.insert(newUser)
