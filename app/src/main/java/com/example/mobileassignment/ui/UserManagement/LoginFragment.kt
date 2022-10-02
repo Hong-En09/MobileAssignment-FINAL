@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.mobileassignment.databinding.FragmentLoginBinding
+import com.example.mobileassignment.ui.Admin.AdminActivity
 import com.example.mobileassignment.ui.CustomerFolder.CustomerActivity
 import com.example.mobileassignment.ui.Homepage.FarmerActivity
 import com.google.firebase.database.*
@@ -40,7 +41,9 @@ class LoginFragment: Fragment() {
             val username : String = binding.editTextUsername.text.toString()
             val password : String = binding.editTextTextPassword.text.toString()
             if(username.isNotEmpty()){
-
+                if(username == "admin123" && password == "admin123"){
+                    startActivity(Intent(context, AdminActivity::class.java))
+                }
                 readData(username,password)
 
             }else{

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Admin.AdminActivity">
+
+    <ImageView
+        android:id="@+id/imageUploadAdmin"
+        android:layout_width="205dp"
+        android:layout_height="214dp"
+        android:layout_marginStart="142dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="142dp"
+        android:layout_marginBottom="471dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AdminPageTitle"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <EditText
+        android:id="@+id/productValueAdmin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="Product Name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/imageUploadAdmin"
+        app:layout_constraintStart_toStartOf="@+id/imageUploadAdmin"
+        app:layout_constraintTop_toBottomOf="@+id/adminProductNameTitle" />
+
+    <TextView
+        android:id="@+id/AdminPageTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="177dp"
+        android:text="@string/adminPageTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/adminProductNameTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/adminProductPage"
+        app:layout_constraintEnd_toEndOf="@+id/imageUploadAdmin"
+        app:layout_constraintStart_toStartOf="@+id/imageUploadAdmin"
+        app:layout_constraintTop_toBottomOf="@+id/imageUploadAdmin" />
+
+    <Button
+        android:id="@+id/uploadButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/uploadAdmin"
+        app:layout_constraintEnd_toEndOf="@+id/productValueAdmin"
+        app:layout_constraintStart_toStartOf="@+id/productValueAdmin"
+        app:layout_constraintTop_toBottomOf="@+id/productValueAdmin" />
+</androidx.constraintlayout.widget.ConstraintLayout>
