@@ -51,7 +51,7 @@ class AddNewRequestActivity : AppCompatActivity() {
             val status = "Pending"
             val dealer = ""
             val storageRef = FirebaseStorage.getInstance().reference
-
+            val phone = sharedPreferences?.getString("phone", null).toString()
             val photoURL = storageRef.child(product + ".png").toString()
 
 
@@ -59,7 +59,7 @@ class AddNewRequestActivity : AppCompatActivity() {
 
 
             if (quantity.isNotEmpty() && price.isNotEmpty()) {
-                val newRequest = AcceptedRequestList(uniqueID, username, product, quantity, price, status, photoURL, dealer,address)
+                val newRequest = AcceptedRequestList(uniqueID, username, product, quantity, price, status, photoURL, dealer,address,phone)
                 val database: DatabaseReference = Firebase.database.getReference("requestList")
 
 

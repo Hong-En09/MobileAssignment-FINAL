@@ -1,14 +1,14 @@
 package com.example.mobileassignment.ui.CustomerFolder
 
-import android.content.Context
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mobileassignment.Entity.AcceptedRequestList
-import com.example.mobileassignment.Entity.RequestList
 import com.example.mobileassignment.R
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.nav_header_farmer.view.*
 
 class AcceptedRequestListAdapter: RecyclerView.Adapter<AcceptedRequestListAdapter.ViewHolder>() {
 
-    private var dataSet = emptyList<AcceptedRequestList>()
+    private var dataSet = mutableListOf<AcceptedRequestList>()
 
 
 
@@ -33,6 +33,7 @@ class AcceptedRequestListAdapter: RecyclerView.Adapter<AcceptedRequestListAdapte
         val textStatus: TextView = view.findViewById(R.id.acceptedStatus)
         val deleteButton:ImageView = view.findViewById(R.id.imageViewDeleteButton)
 
+
         init {
             view.setOnClickListener{
                 //todo: handle click event
@@ -43,7 +44,7 @@ class AcceptedRequestListAdapter: RecyclerView.Adapter<AcceptedRequestListAdapte
    //     dataSet = acceptedRequestList
    //     notifyDataSetChanged() //refresh the RecyclerView
     //}
-    internal fun setAcceptedRequestList(acceptedRequestList: List<AcceptedRequestList>){
+    internal fun setAcceptedRequestList(acceptedRequestList: MutableList<AcceptedRequestList>){
         dataSet = acceptedRequestList
         notifyDataSetChanged() //refresh the RecyclerView
     }
@@ -54,13 +55,16 @@ class AcceptedRequestListAdapter: RecyclerView.Adapter<AcceptedRequestListAdapte
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, @SuppressLint("RecyclerView") position: Int) {
         val orderList = dataSet[position]
         holder.textName.text = orderList.username
         holder.textProduct.text = orderList.product
         holder.textQuantity.text = orderList.quantity
         holder.textPrice.text = orderList.price
         holder.textStatus.text = orderList.status
+        if(holder.textStatus.text == "Pending"){
+            holder.deleteButton.isVisible = true
+        }
         holder.deleteButton.setOnClickListener{
             val databaseRef = FirebaseDatabase.getInstance().reference.child("requestList").orderByChild("uniqueID")
                 .equalTo(orderList.uniqueID)
@@ -69,6 +73,8 @@ class AcceptedRequestListAdapter: RecyclerView.Adapter<AcceptedRequestListAdapte
                     for (ds in snapshot.getChildren()) {
                         ds.ref.removeValue()
                     }
+
+
                 }
 
                 override fun onCancelled(error: DatabaseError) {
@@ -76,7 +82,7 @@ class AcceptedRequestListAdapter: RecyclerView.Adapter<AcceptedRequestListAdapte
                 }
 
             })
-
+            dataSet.clear()
         }
     }
 

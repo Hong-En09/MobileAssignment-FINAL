@@ -15,7 +15,7 @@ import com.google.firebase.ktx.Firebase
 
 class CustomerOrderListAdapter : RecyclerView.Adapter<CustomerOrderListAdapter.ViewHolder>() {
 
-    private var dataSet = emptyList<AcceptedRequestList>()
+    private var dataSet = mutableListOf<AcceptedRequestList>()
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         //view (parameter) refers to the layout hosting each record
@@ -24,8 +24,8 @@ class CustomerOrderListAdapter : RecyclerView.Adapter<CustomerOrderListAdapter.V
         val textPrice: TextView = view.findViewById(R.id.priceAccepted)
         val textQuantity: TextView = view.findViewById(R.id.quantityAccepted)
         val textStatus: TextView = view.findViewById(R.id.statusAccepted)
-        val textAddress: TextView = view.findViewById(R.id.addressAccepted)
         val updateButton: Button = view.findViewById(R.id.buttonArrived)
+        val textAddress: TextView = view.findViewById(R.id.addressAccepted)
 
         init {
             view.setOnClickListener{
@@ -34,7 +34,7 @@ class CustomerOrderListAdapter : RecyclerView.Adapter<CustomerOrderListAdapter.V
         }
     }
 
-    internal fun setCustomerOrderList(orderList: List<AcceptedRequestList>){
+    internal fun setCustomerOrderList(orderList: MutableList<AcceptedRequestList>){
         dataSet = orderList
         notifyDataSetChanged() //refresh the RecyclerView
     }
@@ -55,10 +55,11 @@ class CustomerOrderListAdapter : RecyclerView.Adapter<CustomerOrderListAdapter.V
         holder.textAddress.text = orderList.address
         val status = "Arrived"
         holder.updateButton.setOnClickListener{
-            val database: DatabaseReference = Firebase.database.getReference("requestList")
+            val databaseContract: DatabaseReference = Firebase.database.getReference("requestList")
 
 
-            database.child(orderList.uniqueID).child("status").setValue(status)
+            databaseContract.child(orderList.uniqueID).child("status").setValue(status)
+            dataSet.clear()
         }
 
 

@@ -13,7 +13,8 @@ class AcceptedRequestList (@PrimaryKey val uniqueID: String,
                            val status: String,
                            val photoURL: String,
                            val dealer: String,
-                           val address:String) {
+                           val address:String,
+val phone:String) {
     @Ignore
-    constructor():this("","","","","","", "", "","")
+    constructor():this("","","","","","", "", "","", "")
 }

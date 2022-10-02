@@ -62,6 +62,7 @@ class AddNewRequestFragment: Fragment() {
             val quantity = binding.quantityValue.text.toString()
             val price = binding.priceValue.text.toString()
             val username = sharedPreferences?.getString("username", null).toString()
+
             val uniqueID = UUID.randomUUID().toString()
             if (quantity.isNotEmpty() && price.isNotEmpty()) {
                 val newRequest = RequestList(uniqueID, username, product, quantity, price)

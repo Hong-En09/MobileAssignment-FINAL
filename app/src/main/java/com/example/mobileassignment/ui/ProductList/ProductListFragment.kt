@@ -60,7 +60,7 @@ class ProductListFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        modalList.clear()
         for(i in names.indices){
             modalList.add(ProductList(names[i],images[i]))
         }
