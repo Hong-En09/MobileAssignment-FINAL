@@ -19,6 +19,7 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_profile.*
+import kotlinx.android.synthetic.main.edit_password_layout.*
 import java.util.*
 
 class ProfileActivity : AppCompatActivity() {

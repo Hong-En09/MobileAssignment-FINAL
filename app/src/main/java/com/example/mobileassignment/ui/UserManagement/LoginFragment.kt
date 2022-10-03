@@ -57,44 +57,49 @@ class LoginFragment: Fragment() {
     }
 
     private fun readData(username: String, password: String) {
+        var role = ""
+        var email = ""
+        var phone = ""
+        var address = ""
+        var url = ""
+        var pass = ""
         val databaseRef = FirebaseDatabase.getInstance().reference.child("user")
             .orderByChild("username").equalTo(username)
         databaseRef.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for(ds in snapshot.children){
-                    val pass = ds.child("password").getValue(String::class.java)
-
-                    if(password == pass){
-
-                        val role = ds.child("role").getValue(String::class.java).toString()
-                        val email = ds.child("email").getValue(String::class.java).toString()
-                        val phone = ds.child("phoneNum").getValue(String::class.java).toString()
-                        val address = ds.child("address").getValue(String::class.java).toString()
-                        val url = ds.child("photoUrl").getValue(String::class.java).toString()
-                        val sharedPreferences = activity?.getSharedPreferences("preferenceFile", Context.MODE_PRIVATE)
-                        with (sharedPreferences!!.edit()) {
-                            putString("username", username)
-                            putString("email", email)
-                            putString("role", role)
-                            putString("phone", phone)
-                            putString("address", address)
-                            putString("userURL", url)
-                            putString("pass", pass)
-                            apply()
-                        }
-
-                        if(role == "Farmer"){
-                            Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT).show()
-                            startActivity(Intent(context, FarmerActivity::class.java))
-                        }else{
-                            Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT).show()
-                            startActivity(Intent(context, CustomerActivity::class.java))
-                        }
+                    pass = ds.child("password").getValue(String::class.java).toString()
 
 
-                    }else{
-                        Toast.makeText(context, "Invalid Username or Password", Toast.LENGTH_SHORT).show()
+                        role = ds.child("role").getValue(String::class.java).toString()
+                        email = ds.child("email").getValue(String::class.java).toString()
+                        phone = ds.child("phoneNum").getValue(String::class.java).toString()
+                        address = ds.child("address").getValue(String::class.java).toString()
+                        url = ds.child("photoUrl").getValue(String::class.java).toString()
+
+
+
+                }
+                if(password == pass){
+                    val sharedPreferences = activity?.getSharedPreferences("preferenceFile", Context.MODE_PRIVATE)
+                    with (sharedPreferences!!.edit()) {
+                        putString("username", username)
+                        putString("email", email)
+                        putString("role", role)
+                        putString("phone", phone)
+                        putString("address", address)
+                        putString("userURL", url)
+                        putString("pass", pass)
+                        apply()
                     }
+
+                    if(role == "Farmer"){
+                        startActivity(Intent(context, FarmerActivity::class.java))
+                    }else{
+                        startActivity(Intent(context, CustomerActivity::class.java))
+                    }
+                }else{
+                    Toast.makeText(context, "Invalid username or password.", Toast.LENGTH_SHORT).show()
                 }
             }
 

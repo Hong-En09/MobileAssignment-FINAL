@@ -53,33 +53,27 @@ class AdminActivity : AppCompatActivity() {
             val name = productValueAdmin.text.toString()
             val uid = UUID.randomUUID().toString()
 
-            val validateName = textValidationProductName.text.toString()
-            if(!name.matches("^[a-zA-Z]*$".toRegex())){
-                Toast.makeText(this, "Only Characters Are Allowed", Toast.LENGTH_SHORT).show()
-            }else if(name.matches("^[a-zA-Z]*$".toRegex())){
 
-                val fileName = name
-                val storageReference =
-                    FirebaseStorage.getInstance().getReference("images/$fileName")
-                //insert image
-                storageReference.putFile(ImageUri)
-                    .addOnSuccessListener {
-                        Toast.makeText(this, "Successfully uploaded", Toast.LENGTH_SHORT).show()
+            val fileName = name
+            val storageReference =
+                FirebaseStorage.getInstance().getReference("images/$fileName")
+            //insert image
+            storageReference.putFile(ImageUri)
+                .addOnSuccessListener {
+                    Toast.makeText(this, "Successfully uploaded", Toast.LENGTH_SHORT).show()
 
-                        if (progressDialog.isShowing) progressDialog.dismiss()
+                    if (progressDialog.isShowing) progressDialog.dismiss()
 
-                    }.addOnFailureListener {
-                        Toast.makeText(this, "Failed uploaded", Toast.LENGTH_SHORT).show()
+                }.addOnFailureListener {
+                    Toast.makeText(this, "Failed uploaded", Toast.LENGTH_SHORT).show()
 
-                        if (progressDialog.isShowing) progressDialog.dismiss()
-                    }
-                val sharedPreferences = getSharedPreferences("preferenceFile", Context.MODE_PRIVATE)
+                    if (progressDialog.isShowing) progressDialog.dismiss()
+                }
+            val sharedPreferences = getSharedPreferences("preferenceFile", Context.MODE_PRIVATE)
+            val database: DatabaseReference = Firebase.database.getReference("product")
+            val product = ProductPhoto(fileName, fileName)
 
-                val database: DatabaseReference = Firebase.database.getReference("product")
-                val product = ProductPhoto(fileName, fileName)
-
-                database.child(uid).setValue(product)
-            }
+            database.child(fileName).setValue(product)
         }else{
             Toast.makeText(this,"Please select a new photo", Toast.LENGTH_SHORT).show()
         }
